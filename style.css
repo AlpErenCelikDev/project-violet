@@ -1,0 +1,213 @@
+/* Genel Ayarlar ve Fontlar */
+* {
+    box-sizing: border-box;
+}
+
+/* ============================================================
+   ÖZEL FONT — kendi font dosyanı eklediğinde burayı kullan.
+   1) Elinde bir dosya varsa (.woff2/.woff/.ttf): repo'ya "fonts/"
+      klasörü aç, dosyayı içine at, aşağıdaki url(...) satırını
+      kendi dosya adınla değiştir ve bu bloğun yorumunu kaldır.
+   2) Google Fonts gibi bir siteden alıyorsan: bu bloğa hiç gerek
+      yok, sadece html <head> içindeki Cinzel/Inter linkinin yanına
+      aynı formatta yeni bir <link> ekle, sonra aşağıdaki
+      --font-oyun değişkenine o fontun adını yaz.
+   ============================================================ */
+/*
+@font-face {
+    font-family: 'OyunFontu';
+    src: url('fonts/SENIN-FONT-DOSYAN.woff2') format('woff2'),
+         url('fonts/SENIN-FONT-DOSYAN.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+*/
+
+:root {
+    /* Font eklediğinde 'Cinzel' yerine kendi font adını ('OyunFontu' gibi) yaz.
+       Site genelinde bu değişkeni kullanan her yer otomatik güncellenir. */
+    --font-oyun: 'Cinzel', serif;
+
+    /* Sayfanın genel (sabit) arka plan rengi. arkaplan.png artık düz renk
+       olduğu için resme hiç ihtiyaç yok; renk burada tek noktadan kontrol
+       ediliyor. İstediğin an sadece bu satırı değiştirerek tüm sayfanın
+       tonunu değiştirebilirsin. */
+    --sayfa-arkaplan-rengi: #3f3f74;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    color: #e2e8f0;
+    background-color: var(--sayfa-arkaplan-rengi);
+}
+
+/* Üst Bar */
+.ust-menu {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 20px 40px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+/* Sağ Taraftaki Dil Çerçevesi */
+.dil-cerceve-kutusu {
+    position: relative;
+    display: inline-block;
+    width: 150px;  
+    height: 130px; 
+}
+
+.dil-arkaplan-cerceve {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Metin (%50 - %50) genişliğe göre değil, flex ile ortalanıyor —
+   böylece hangi font/harf genişliği olursa olsun her zaman düzgün
+   yerleşir, "sol-btn %15 / sag-btn %15" gibi elle ayarlanan sabit
+   yüzdelere bağlı kalmaz. */
+.dil-butonlari {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    pointer-events: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 18px;
+}
+
+/* TR ve EN Butonları — artık resim değil, doğrudan YAZI.
+   Görsel dosyalarına (tr_normal.png, tr_active.png, en_chosen.png vb.) ve
+   onmouseover/onmouseout JS'ine hiç gerek kalmadı, hepsini silebilirsin.
+   Font eklediğinde otomatik bu yazıya uygulanır (--font-oyun değişkeni). */
+.dil-btn {
+    cursor: pointer;
+    text-decoration: none;
+    font-family: var(--font-oyun);
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #c4b5fd;
+    text-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.dil-btn:hover {
+    color: #ffffff;
+    transform: scale(1.1);
+}
+
+/* Şu an açık olan sayfanın dil butonu (örn. tr.html'de TR'ye eklenir) */
+.dil-btn.dil-aktif {
+    color: #a855f7;
+    text-shadow: 0 0 10px rgba(168, 85, 247, 0.85);
+}
+
+/* TEK GENİŞLİK REFERANSI: resim + logo + içerik hep bu sarmalayıcıya göre ölçekleniyor.
+   Bu sayede aşağıdaki yüzdesel (negatif margin dahil) hesaplar PC'de ve mobilde
+   HER ZAMAN aynı orana göre çalışır, ayrı ayrı sapma olmaz. */
+.sayfa-govde {
+    max-width: 850px;
+    margin: 40px auto 0 auto;
+    padding: 0 20px;
+}
+
+/* ORTADAKİ BÜYÜK GÖRSEL VE LOGO ALANI */
+.logo-merkez-alani {
+    position: relative;
+    text-align: center;
+    /* arkaplan.png'nin gerçek piksel oranı (2560x1440) ile BİREBİR aynı.
+       Bu satır sayesinde tarayıcı resim daha inmeden alanı ayırır;
+       resim yüklendiğinde sayfa aşağı/yukarı ZIPLAMAZ (kayma efekti sıfırlanır). */
+    aspect-ratio: 2560 / 1440;
+}
+
+/* Logonun arkasındaki kutu — artık resim (arkaplan.png) DEĞİL, düz CSS rengi.
+   Böylece hiçbir yükleme/oran sorunu yaşanmaz, renk tek satırdan değişir. */
+.ana-arkaplan-resim {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    background-color: var(--sayfa-arkaplan-rengi);
+    border-radius: 10px;
+}
+
+/* Kutu artık düz renk olduğu için logo GERÇEK merkeze (%50) oturuyor. */
+.ana-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 500px;
+    width: 70%;
+    height: auto;
+    filter: drop-shadow(0 0 20px rgba(168, 85, 247, 0.6));
+    transition: transform 0.3s ease;
+    z-index: 5;
+}
+
+.ana-logo:hover {
+    transform: translate(-50%, -50%) scale(1.02);
+}
+
+/* Ana İçerik ve Kutular — siyah çerçevenin GÖRSEL alt kenarının hemen
+   birazcık altından başlar. calc() içindeki -%18.44 değeri, arkaplan.png'nin
+   altındaki "hayalet" boşluğu iptal eder; +28px ise geriye kalan sabit,
+   küçük boşluktur ("biraz altından" hissi). .sayfa-govde ile aynı genişlik
+   referansını paylaştığı için bu oran her ekran boyutunda birebir korunur. */
+.ana-icerik {
+    margin-top: calc(-18.44% + 28px);
+    margin-bottom: 40px;
+}
+
+.kutu {
+    background: rgba(15, 15, 20, 0.75);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 40px;
+    border-radius: 12px;
+    border: 1px solid rgba(168, 85, 247, 0.2);
+    margin-bottom: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+h1, h2 {
+    font-family: 'Cinzel', serif;
+    color: #a855f7;
+    margin-top: 0;
+}
+
+.tarih {
+    display: block;
+    font-size: 14px;
+    color: #94a3b8;
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+ul {
+    line-height: 1.7;
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 10px;
+}
