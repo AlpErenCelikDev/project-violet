@@ -26,46 +26,59 @@ body {
     z-index: 100;
 }
 
-/* Sağ Taraftaki Dil Çerçevesi */
+/* Sağ Taraftaki Dil Çerçevesi (Tüm katmanların hizalandığı ana kutu) */
 .dil-cerceve-kutusu {
     position: relative;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    display: inline-block;
+    width: 90px;  /* Çerçevenin ekrandaki genişliği (görseline göre 70px-110px arası ayarlayabilirsin) */
+    height: 80px; /* Çerçevenin ekrandaki yüksekliği */
 }
 
-/* En altta yer alan sabit çerçeve görseli (frame.png - 272x240 oranına göre) */
+/* En alttaki sabit çerçeve görseli (frame.png) */
 .dil-arkaplan-cerceve {
-    display: block;
-    height: 75px; /* Çerçevenin ideal görünür yüksekliği */
-    width: auto;
-    pointer-events: none;
-}
-
-/* Çerçevenin tam içine butonları yerleştiren katman */
-.dil-butonlari {
     position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8px; /* İki buton arasındaki boşluk */
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    padding: 0 12px;
+    object-fit: contain;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Butonların yerleştiği alan */
+.dil-butonlari {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     z-index: 2;
 }
 
-/* TR ve EN Butonları Boyutu */
+/* TR ve EN Butonlarının Üst Üste / Yan Yana Tam Konumlanması */
 .dil-btn {
-    height: 42px; /* Çerçevenin içine tam oturacak buton yüksekliği */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 45%; /* Çerçevenin yüksekliğine göre buton boyutu */
     width: auto;
-    display: block;
     cursor: pointer;
     transition: transform 0.2s ease;
 }
 
 .dil-btn:hover {
-    transform: scale(1.05);
+    transform: translateY(-50%) scale(1.08);
+}
+
+/* Sol taraftaki buton (TR) */
+.sol-btn {
+    left: 18%; /* Çerçevenin solundan mesafe */
+}
+
+/* Sağ taraftaki buton (EN) */
+.sag-btn {
+    right: 18%; /* Çerçevenin sağından mesafe */
 }
 
 /* ORTADAKİ BÜYÜK LOGO ALANI */
