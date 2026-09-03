@@ -1,47 +1,88 @@
-:root {
-    /* ==========================================================
-       PROJECT VIOLET - MERKEZİ RENK PALETİ
-       ========================================================== */
-    
-    /* 1. Sayfa Arka Planı (Şu anki koyu mor tonu) */
-    --sayfa-arkaplan-rengi: #3f3f74;
+/* ==========================================================
+   PROJECT VIOLET - GÜNCEL & REVİZE FİNAL CSS DOSYASI
+   ========================================================== */
 
-    /* 2. İçerik Kutularının Arka Planı (Yarı şeffaf koyu tema) */
+:root {
+    /* ----------------------------------------------------------
+       1. TEMEL SAYFA VE KUTU TEMA RENKLERİ
+       ---------------------------------------------------------- */
+    --sayfa-arkaplan-rengi: #3f3f74;
     --kutu-arkaplan: rgba(15, 15, 20, 0.75);
 
-    /* 3. Ana Mor Tonları (Başlıklar, aktif butonlar, vurgular) */
-    --mor-ana: #a855f7;        /* Klasik Project Violet Moru */
-    --mor-acik: #c4b5fd;       /* Hover (üzerine gelince) ve parlama tonu */
-    --mor-koyu: #6b21a8;       /* Derin gölge ve sınır (border) tonu */
-    
-    /* Buz Mavisi Başlık Vurgusu */
-    .buz-mavi-baslik {
-    color: #7dd3fc;
-}
-    /* 4. Metin Renkleri */
-    --metin-ana: #e2e8f0;      /* Genel paragraf ve liste yazıları (Açık gri/beyaz) */
-    --metin-ikincil: #94a3b8;  /* Tarihler ve sönük metinler */
+    /* ----------------------------------------------------------
+       2. EDİTÖR İÇİN 20 FARKLI RENK SEÇENEĞİ (DEĞİŞKENLER)
+       ---------------------------------------------------------- */
+    --renk-1-mor-ana: #a855f7;       /* Klasik Violet Moru */
+    --renk-2-mor-acik: #c4b5fd;      /* Açık Eflatun / Lila */
+    --renk-3-mor-koyu: #6b21a8;      /* Derin Gece Moru */
+    --renk-4-buz-mavi: #7dd3fc;      /* Buz Mavisi / Açık Cyan */
+    --renk-5-neon-mavi: #38bdf8;     /* Parlak Neon Mavi */
+    --renk-6-koyu-mavi: #1e40af;     /* Safir / Deniz Mavisi */
+    --renk-7-turkuaz: #2dd4bf;       /* Kristal Turkuaz */
+    --renk-8-nane-yesili: #4ade80;   /* Canlı Nane Yeşili */
+    --renk-9-zumrut: #15803d;        /* Derin Zümrüt Yeşili */
+    --renk-10-limon-yesil: #a3e635;  /* Büyü / Zehir Yeşili */
+    --renk-11-sari: #facc15;         /* Altın Sarısı */
+    --renk-12-kehribar: #f59e0b;     /* Kehribar / Bal Rengi */
+    --renk-13-turuncu: #fb923c;      /* Alev Turuncusu */
+    --renk-14-kirmizi: #f87171;      /* Kan Kırmızı / Mercan */
+    --renk-15-koyu-kirmizi: #991b1b; /* Derin Yakut Kırmızısı */
+    --renk-16-pembe: #f472b6;        /* Şeker Pembe */
+    --renk-17-fusya: #e879f9;        /* Parlak Fuşya */
+    --renk-18-beyaz: #f8fafc;        /* Parlak Saf Beyaz */
+    --renk-19-gri-acik: #e2e8f0;     /* Genel Metin Grisi */
+    --renk-20-gri-koyu: #94a3b8;     /* Pasif / Tarih Grisi */
 
-    /* 5. Efekt ve Parlamalar (Neon Işıklar) */
-    --golge-parlama: rgba(168, 85, 247, 0.6); /* Logo ve kutu parlamaları */
-    --cerceve-cizgi: rgba(168, 85, 247, 0.25); /* Kutuların ince kenar çizgileri */
+    /* ----------------------------------------------------------
+       3. METİN & EFEKT VARSAYILANLARI
+       ---------------------------------------------------------- */
+    --metin-ana: var(--renk-19-gri-acik);
+    --metin-ikincil: var(--renk-20-gri-koyu);
+    --golge-parlama: rgba(168, 85, 247, 0.6);
+    --cerceve-cizgi: rgba(168, 85, 247, 0.25);
+    --font-oyun: 'OyunFontu', serif;
 }
 
-/* Genel Ayarlar ve Fontlar */
+/* ==========================================================
+   4. EDİTÖR RENK SINIFLARI (HTML İçinde Doğrudan Kullanım)
+   Örn: <span class="c-buz-mavi">Metin</span>
+   ========================================================== */
+.c-mor-ana       { color: var(--renk-1-mor-ana) !important; }
+.c-mor-acik      { color: var(--renk-2-mor-acik) !important; }
+.c-mor-koyu      { color: var(--renk-3-mor-koyu) !important; }
+.c-buz-mavi      { color: var(--renk-4-buz-mavi) !important; }
+.c-neon-mavi     { color: var(--renk-5-neon-mavi) !important; }
+.c-koyu-mavi     { color: var(--renk-6-koyu-mavi) !important; }
+.c-turkuaz       { color: var(--renk-7-turkuaz) !important; }
+.c-nane-yesili   { color: var(--renk-8-nane-yesili) !important; }
+.c-zumrut        { color: var(--renk-9-zumrut) !important; }
+.c-limon-yesil   { color: var(--renk-10-limon-yesil) !important; }
+.c-sari          { color: var(--renk-11-sari) !important; }
+.c-kehribar      { color: var(--renk-12-kehribar) !important; }
+.c-turuncu       { color: var(--renk-13-turuncu) !important; }
+.c-kirmizi       { color: var(--renk-14-kirmizi) !important; }
+.c-koyu-kirmizi  { color: var(--renk-15-koyu-kirmizi) !important; }
+.c-pembe         { color: var(--renk-16-pembe) !important; }
+.c-fusya         { color: var(--renk-17-fusya) !important; }
+.c-beyaz         { color: var(--renk-18-beyaz) !important; }
+.c-gri-acik      { color: var(--renk-19-gri-acik) !important; }
+.c-gri-koyu      { color: var(--renk-20-gri-koyu) !important; }
+
+/* Eski uyumluluk için özel başlık sınıfı */
+.buz-mavi-baslik { color: var(--renk-4-buz-mavi); }
+
+/* ==========================================================
+   5. GENEL TEMEL AYARLAR & FONT TANIMI
+   ========================================================== */
 * {
     box-sizing: border-box;
 }
 
 @font-face {
     font-family: 'OyunFontu';
-    src: url('fonts/PressStart2P.ttf') format('truetype');
+    src: url('../fonts/PressStart2P.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
-}
-
-:root {
-    --font-oyun: 'OyunFontu', serif;
-    --sayfa-arkaplan-rengi: #3f3f74;
 }
 
 body {
@@ -49,11 +90,13 @@ body {
     font-family: var(--font-oyun);
     font-size: 13px;
     line-height: 1.8;
-    color: #e2e8f0;
+    color: var(--metin-ana);
     background-color: var(--sayfa-arkaplan-rengi);
 }
 
-/* Üst Bar */
+/* ==========================================================
+   6. ÜST BAR VE DİL SEÇENEĞİ (HEADER)
+   ========================================================== */
 .ust-menu {
     display: flex;
     justify-content: flex-end;
@@ -66,7 +109,6 @@ body {
     z-index: 100;
 }
 
-/* Sağ Taraftaki Dil Çerçevesi */
 .dil-cerceve-kutusu {
     position: relative;
     display: inline-block;
@@ -85,7 +127,6 @@ body {
     z-index: 1;
 }
 
-/* TR ve EN Seçenekleri - Boşluk daraltıldı */
 .dil-butonlari {
     position: absolute;
     top: 0;
@@ -106,21 +147,24 @@ body {
     font-family: var(--font-oyun);
     font-size: 14px;
     letter-spacing: 1px;
-    color: #c4b5fd;
+    color: var(--renk-2-mor-acik);
     text-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
     transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .dil-btn:hover {
-    color: #ffffff;
+    color: var(--renk-18-beyaz);
     transform: scale(1.1);
 }
 
 .dil-btn.dil-aktif {
-    color: #a855f7;
+    color: var(--renk-1-mor-ana);
     text-shadow: 0 0 10px rgba(168, 85, 247, 0.85);
 }
 
+/* ==========================================================
+   7. SAYFA GÖVDESİ & BANNER / LOGO ALANI
+   ========================================================== */
 .sayfa-govde {
     max-width: 850px;
     margin: 40px auto 0 auto;
@@ -139,7 +183,9 @@ body {
     width: 100%;
     height: 100%;
     display: block;
-    background-color: var(--sayfa-arkaplan-rengi);
+    background-image: url('../images/arkaplan.png');
+    background-size: cover;
+    background-position: center;
     border-radius: 10px;
 }
 
@@ -151,7 +197,7 @@ body {
     max-width: 500px;
     width: 70%;
     height: auto;
-    filter: drop-shadow(0 0 20px rgba(168, 85, 247, 0.6));
+    filter: drop-shadow(0 0 20px var(--golge-parlama));
     transition: transform 0.3s ease;
     z-index: 5;
 }
@@ -160,41 +206,39 @@ body {
     transform: translate(-50%, -50%) scale(1.02);
 }
 
+/* ==========================================================
+   8. İÇERİK KUTULARI VE TİPOGRAFİ
+   ========================================================== */
 .ana-icerik {
     margin-top: calc(-18.44% + 28px);
     margin-bottom: 40px;
 }
 
 .kutu {
-    background: rgba(15, 15, 20, 0.75);
+    background: var(--kutu-arkaplan);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     padding: 40px;
     border-radius: 12px;
-    border: 1px solid rgba(168, 85, 247, 0.2);
+    border: 1px solid var(--cerceve-cizgi);
     margin-bottom: 30px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
 }
 
 h1, h2 {
     font-family: var(--font-oyun);
-    color: #a855f7;
+    color: var(--renk-1-mor-ana);
     margin-top: 0;
     line-height: 1.4;
 }
 
-h1 {
-    font-size: 20px;
-}
-
-h2 {
-    font-size: 16px;
-}
+h1 { font-size: 20px; }
+h2 { font-size: 16px; }
 
 .tarih {
     display: block;
     font-size: 11px;
-    color: #94a3b8;
+    color: var(--metin-ikincil);
     margin-bottom: 15px;
 }
 
@@ -206,19 +250,25 @@ li {
     margin-bottom: 12px;
 }
 
-/* Yama Notları İçindeki Görseller */
+/* Liste içindeki güçlü/vurgulu kelimelerin otomatik varsayılan rengi */
+li strong {
+    color: var(--renk-4-buz-mavi);
+}
+
+/* ==========================================================
+   9. MEDYA ELEMANLARI (GÖRSEL VE VİDEO)
+   ========================================================== */
 .yama-resmi {
     width: 100%;
     max-width: 600px;
     height: auto;
     border-radius: 8px;
     margin: 15px 0;
-    border: 1px solid rgba(168, 85, 247, 0.3);
+    border: 1px solid var(--cerceve-cizgi);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
     display: block;
 }
 
-/* Yama Notları İçindeki Videolar */
 .video-kapsayici {
     position: relative;
     width: 100%;
@@ -227,7 +277,7 @@ li {
     margin: 20px 0;
     border-radius: 8px;
     overflow: hidden;
-    border: 1px solid rgba(168, 85, 247, 0.3);
+    border: 1px solid var(--cerceve-cizgi);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
 }
 
@@ -239,7 +289,9 @@ li {
     height: 100%;
 }
 
-/* Sihir Tozu Efekti (Kar Yağışı Mantığı) */
+/* ==========================================================
+   10. SİHİR TOZU EFEKTİ (ANİMASYON)
+   ========================================================== */
 .sihir-kutusu {
     position: fixed;
     top: 0;
@@ -254,9 +306,9 @@ li {
 .sihir-tozu {
     position: absolute;
     top: -10vh;
-    background: #a855f7;
+    background: var(--renk-1-mor-ana);
     border-radius: 50%;
-    box-shadow: 0 0 8px #a855f7, 0 0 15px #c4b5fd;
+    box-shadow: 0 0 8px var(--renk-1-mor-ana), 0 0 15px var(--renk-2-mor-acik);
     animation: sihir-yagisi linear infinite;
 }
 
@@ -265,30 +317,28 @@ li {
         transform: translateY(0) scale(0.8);
         opacity: 0;
     }
-    10% {
-        opacity: 1;
-    }
-    80% {
-        opacity: 0.8;
-    }
+    10% { opacity: 1; }
+    80% { opacity: 0.8; }
     100% {
         transform: translateY(110vh) scale(1.2);
         opacity: 0;
     }
 }
 
-/* Mobil Uyum */
+/* ==========================================================
+   11. MOBİL UYUM (RESPONSIVE DESIGN)
+   ========================================================== */
 @media screen and (max-width: 768px) {
-    .ust-menu {
-        padding: 15px 20px;
-    }
-    
-    .dil-cerceve-kutusu {
-        width: auto;
-        height: auto;
+    .ust-menu { 
+        padding: 15px 20px; 
     }
 
-    .dil-arkaplan-cerceve {
+    .dil-cerceve-kutusu { 
+        width: auto; 
+        height: auto; 
+    }
+
+    .dil-arkaplan-cerceve { 
         display: none; 
     }
 
@@ -304,32 +354,28 @@ li {
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
     }
 
-    .dil-btn {
-        font-size: 11px;
+    .dil-btn { 
+        font-size: 11px; 
     }
 
-    .sayfa-govde {
-        margin-top: 70px;
+    .sayfa-govde { 
+        margin-top: 70px; 
     }
 
-    .ana-logo {
-        max-width: 85%;
-        top: 50%;
+    .ana-logo { 
+        max-width: 85%; 
+        top: 50%; 
     }
 
-    .ana-icerik {
-        margin-top: 25px;
+    .ana-icerik { 
+        margin-top: 25px; 
     }
 
-    .kutu {
-        padding: 20px;
-        margin-bottom: 20px;
+    .kutu { 
+        padding: 20px; 
+        margin-bottom: 20px; 
     }
 
     h1 { font-size: 14px; line-height: 1.5; }
     h2 { font-size: 12px; line-height: 1.5; }
-}
-/* Otomatik olarak boyanacak başlık vurgusu */
-li strong {
-    color: #7dd3fc;
 }
