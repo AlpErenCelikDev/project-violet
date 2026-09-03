@@ -13,56 +13,80 @@ body {
     color: #e2e8f0;
 }
 
-/* Üst Menü (Logo ve Dil Barı) */
+/* Sabit Üst Bar */
 .ust-menu {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 5%;
-    background: rgba(10, 10, 15, 0.8);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    padding: 0 5%;
+    height: 75px; /* Barın sabit yüksekliği */
+    background-image: url('bar.png');
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(10, 10, 15, 0.9);
     border-bottom: 1px solid rgba(168, 85, 247, 0.4);
-    position: sticky; /* Menüyü en üste sabitler */
+    position: sticky;
     top: 0;
     z-index: 100;
 }
 
-/* Şimdilik yazı tabanlı logo, ileride buraya görsel eklenebilir */
+/* Sol Taraftaki Logo (Barın içinden hafif aşağı taşar) */
 .logo {
-    font-family: 'Cinzel', serif;
-    font-size: 26px;
-    font-weight: bold;
-    color: #a855f7;
-    text-shadow: 0 0 10px rgba(168, 85, 247, 0.6);
-    letter-spacing: 2px;
+    height: 90px; /* Bardan büyük tutularak aşağı sarkması sağlanır */
+    width: auto;
+    position: relative;
+    top: 15px; /* Aşağı doğru taşma miktarı */
+    border-radius: 6px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7), 0 0 10px rgba(168, 85, 247, 0.5);
 }
 
-.dil-secenekleri {
+/* Sağ Taraftaki Daha Küçük Dil Çerçevesi Alanı */
+.dil-cerceve-kutusu {
+    position: relative;
     display: flex;
-    gap: 15px;
-    background: rgba(0, 0, 0, 0.6);
-    padding: 8px 16px;
-    border-radius: 8px;
-    border: 1px solid #a855f7;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 10px;
+    transform: scale(0.85); /* Çerçevenin genel boyutunu küçültür */
 }
 
-.dil-secenekleri a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 15px;
-    transition: color 0.3s;
+/* Arkadaki çerçeve görseli (language_frame.png) */
+.dil-arkaplan-cerceve {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
 }
 
-.dil-secenekleri a.aktif, .dil-secenekleri a:hover {
-    color: #a855f7;
+/* TR ve EN butonları */
+.dil-butonlari {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+/* Dil Butonu Resimleri */
+.dil-btn {
+    height: 22px; /* Küçük çerçeveye uyumlu buton boyutu */
+    width: auto;
+    display: block;
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.dil-btn:hover {
+    transform: scale(1.08);
+    filter: brightness(1.2);
 }
 
 /* Ana İçerik ve Kutular */
 .ana-icerik {
     max-width: 850px;
-    margin: 40px auto;
+    margin: 50px auto 40px auto; /* Logonun aşağı taşma payı düşünülerek üst boşluk artırıldı */
     padding: 0 20px;
 }
 
@@ -73,7 +97,7 @@ body {
     padding: 40px;
     border-radius: 12px;
     border: 1px solid rgba(168, 85, 247, 0.2);
-    margin-bottom: 30px; /* Kutular arası boşluk */
+    margin-bottom: 30px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
 }
 
@@ -100,16 +124,21 @@ li {
     margin-bottom: 10px;
 }
 
-/* Mobil Ekran Uyum Ayarları (Telefonlar için) */
+/* Mobil Ekran Uyum Ayarları */
 @media screen and (max-width: 768px) {
     .ust-menu {
-        padding: 15px 20px;
+        height: 60px;
+        padding: 0 15px;
     }
     .logo {
-        font-size: 20px;
+        height: 70px; /* Mobilde taşma oranı dengelendi */
+        top: 10px;
+    }
+    .dil-cerceve-kutusu {
+        transform: scale(0.75); /* Mobilde daha da kompakt durması için */
     }
     .ana-icerik {
-        margin: 20px auto;
+        margin: 35px auto 20px auto;
     }
     .kutu {
         padding: 25px;
