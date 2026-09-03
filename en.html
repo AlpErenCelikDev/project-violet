@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project Violet - English</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -20,18 +19,16 @@
         </div>
     </header>
 
-    <!-- TEK GENİŞLİK REFERANSI: resim + logo + içerik hep bu sarmalayıcıya göre ölçekleniyor -->
+    <!-- TEK GENİŞLİK REFERANSI -->
     <div class="sayfa-govde">
 
         <!-- ORTADAKİ BÜYÜK GÖRSEL VE LOGO ALANI -->
         <div class="logo-merkez-alani">
-            <!-- Logonun arkasındaki düz renkli kutu -->
             <div class="ana-arkaplan-resim"></div>
-            <!-- Üstüne tam ortalanacak logo -->
             <img src="logo.png" alt="Project Violet Logo" class="ana-logo">
         </div>
 
-        <!-- ANA İÇERİK (KUTULAR - siyah çerçevenin biraz altından başlar) -->
+        <!-- ANA İÇERİK (KUTULAR) -->
         <main class="ana-icerik">
 
             <!-- WELCOME BOX -->
@@ -80,5 +77,22 @@
 
     </div>
 
+    <!-- Sihir Efekti ve Script -->
+    <div class="sihir-kutusu" id="sihirKutusu"></div>
+    <script>
+        function sihirYarat() {
+            const kutu = document.getElementById('sihirKutusu');
+            const sihir = document.createElement('div');
+            sihir.classList.add('sihir-tozu');
+            const boyut = Math.random() * 2 + 2;
+            sihir.style.width = boyut + 'px';
+            sihir.style.height = boyut + 'px';
+            sihir.style.left = Math.random() * 100 + 'vw';
+            sihir.style.animationDuration = Math.random() * 8 + 6 + 's';
+            kutu.appendChild(sihir);
+            setTimeout(() => { sihir.remove(); }, 14000); 
+        }
+        setInterval(sihirYarat, 400);
+    </script>
 </body>
 </html>
