@@ -12,10 +12,14 @@
     <!-- SAĞ ÜST DİL SEÇENEĞİ -->
     <header class="ust-menu">
         <div class="dil-cerceve-kutusu">
-            <img src="language_frame.png" alt="Frame" class="dil-arkaplan-cerceve">
+            <img src="frame.png" alt="Frame" class="dil-arkaplan-cerceve">
             <div class="dil-butonlari">
                 <a href="tr.html"><img src="tr_chosen.png" alt="TR" class="dil-btn"></a>
-                <a href="en.html"><img src="en_normal.png" alt="EN" class="dil-btn"></a>
+                <a href="en.html">
+                    <img src="en_normal.png" alt="EN" class="dil-btn" 
+                         onmouseover="this.src='en_active.png';" 
+                         onmouseout="this.src='en_normal.png';">
+                </a>
             </div>
         </div>
     </header>
@@ -24,8 +28,6 @@
     <div class="logo-merkez-alani">
         <img src="logo.png" alt="Project Violet Logo" class="ana-logo">
     </div>
-
-
 
     <!-- ANA İÇERİK (KUTULAR) -->
     <main class="ana-icerik">
