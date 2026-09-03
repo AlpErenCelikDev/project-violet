@@ -26,12 +26,12 @@ body {
     z-index: 100;
 }
 
-/* Sağ Taraftaki Dil Çerçevesi (Tüm katmanların hizalandığı ana kutu) */
+/* Sağ Taraftaki Dil Çerçevesi (Mikroskopla seçilme sorunu için rahat tıklanabilir boyuta getirildi) */
 .dil-cerceve-kutusu {
     position: relative;
     display: inline-block;
-    width: 90px;  /* Çerçevenin ekrandaki genişliği (görseline göre 70px-110px arası ayarlayabilirsin) */
-    height: 80px; /* Çerçevenin ekrandaki yüksekliği */
+    width: 150px;  
+    height: 130px; 
 }
 
 /* En alttaki sabit çerçeve görseli (frame.png) */
@@ -59,9 +59,9 @@ body {
 /* TR ve EN Butonlarının Üst Üste / Yan Yana Tam Konumlanması */
 .dil-btn {
     position: absolute;
-    top: 50%;
+    top: 52%;
     transform: translateY(-50%);
-    height: 45%; /* Çerçevenin yüksekliğine göre buton boyutu */
+    height: 40%; /* Çerçevenin büyüklüğüne göre buton boyutu dengelendi */
     width: auto;
     cursor: pointer;
     transition: transform 0.2s ease;
@@ -73,18 +73,18 @@ body {
 
 /* Sol taraftaki buton (TR) */
 .sol-btn {
-    left: 18%; /* Çerçevenin solundan mesafe */
+    left: 20%; 
 }
 
 /* Sağ taraftaki buton (EN) */
 .sag-btn {
-    right: 18%; /* Çerçevenin sağından mesafe */
+    right: 20%; 
 }
 
-/* ORTADAKİ BÜYÜK LOGO ALANI */
+/* ORTADAKİ BÜYÜK LOGO ALANI (Aşağı kaydırıldı) */
 .logo-merkez-alani {
     text-align: center;
-    padding: 60px 20px 20px 20px;
+    padding: 120px 20px 40px 20px; /* Üst boşluk artırılarak logo aşağı indirildi */
 }
 
 .ana-logo {
@@ -99,10 +99,10 @@ body {
     transform: scale(1.02); /* Üzerine gelince çok hafif nefes alır gibi büyür */
 }
 
-/* Ana İçerik ve Kutular */
+/* Ana İçerik ve Kutular (Logonun ve arka plan görselinin altından başlatıldı) */
 .ana-icerik {
     max-width: 850px;
-    margin: 20px auto 40px auto;
+    margin: 40px auto 40px auto; 
     padding: 0 20px;
 }
 
@@ -146,7 +146,7 @@ li {
         padding: 15px 20px;
     }
     .logo-merkez-alani {
-        padding: 50px 15px 10px 15px;
+        padding: 80px 15px 20px 15px;
     }
     .ana-logo {
         max-width: 320px; /* Mobilde ekrana sığacak ideal boyut */
