@@ -23,21 +23,29 @@ h1, h2 {
 ul {
     line-height: 1.6;
 }
+/* Sağ Üst Dil Kutucuğu */
 .dil-secenekleri {
     position: absolute;
     top: 20px;
     right: 30px;
+    background-color: rgba(0, 0, 0, 0.8); /* Kutunun arka planı (yarı saydam siyah) */
+    padding: 10px 20px; /* Kutunun iç boşlukları */
+    border-radius: 8px; /* Kutunun köşelerini yuvarlatır */
+    border: 1px solid #a855f7; /* Kutunun etrafına mor ince bir çizgi çeker */
+    display: flex;
+    gap: 15px; /* TR ve EN yazıları arasına boşluk koyar */
 }
 
 .dil-secenekleri a {
     color: white;
     text-decoration: none;
     font-weight: bold;
-    font-size: 18px;
-    padding: 5px 10px;
+    font-size: 16px;
     transition: color 0.3s;
 }
 
-.dil-secenekleri a:hover {
-    color: #a855f7; /* Fareyle üzerine gelince mor parlar */
+/* Fareyle üzerine gelince VEYA o dildeyken rengi mor yap */
+.dil-secenekleri a:hover, 
+.dil-secenekleri a.aktif {
+    color: #a855f7; 
 }
