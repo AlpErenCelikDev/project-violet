@@ -235,3 +235,41 @@ li {
     h1 { font-size: 14px; line-height: 1.5; }
     h2 { font-size: 12px; line-height: 1.5; }
 }
+
+/* Sihir Tozu Efekti (Kar Yağışı Mantığı) */
+.sihir-kutusu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none; /* Taneciklerin tıklamaları engellememesi için */
+    z-index: 9999; /* En üstte süzülsün */
+    overflow: hidden;
+}
+
+.sihir-tozu {
+    position: absolute;
+    top: -10vh;
+    background: #a855f7; /* Project Violet moru */
+    border-radius: 50%;
+    box-shadow: 0 0 8px #a855f7, 0 0 15px #c4b5fd; /* Büyülü parlama efekti */
+    animation: sihir-yagisi linear infinite;
+}
+
+@keyframes sihir-yagisi {
+    0% {
+        transform: translateY(0) scale(0.8);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(110vh) scale(1.2);
+        opacity: 0;
+    }
+}
