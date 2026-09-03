@@ -10,13 +10,15 @@
 <body>
 
     <!-- SAĞ ÜST DİL SEÇENEĞİ -->
-    <header class="ust-menu">
+   <header class="ust-menu">
         <div class="dil-cerceve-kutusu">
             <img src="frame.png" alt="Frame" class="dil-arkaplan-cerceve">
             <div class="dil-butonlari">
-                <a href="tr.html"><img src="tr_chosen.png" alt="TR" class="dil-btn"></a>
+                <!-- TR Seçili (Sol tarafta üst üste binen katman) -->
+                <a href="tr.html"><img src="tr_chosen.png" alt="TR" class="dil-btn sol-btn"></a>
+                <!-- EN Normal / Active (Sağ tarafta üst üste binen katman) -->
                 <a href="en.html">
-                    <img src="en_normal.png" alt="EN" class="dil-btn" 
+                    <img src="en_normal.png" alt="EN" class="dil-btn sag-btn" 
                          onmouseover="this.src='en_active.png';" 
                          onmouseout="this.src='en_normal.png';">
                 </a>
