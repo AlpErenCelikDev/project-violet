@@ -13,7 +13,11 @@
     --mor-ana: #a855f7;        /* Klasik Project Violet Moru */
     --mor-acik: #c4b5fd;       /* Hover (üzerine gelince) ve parlama tonu */
     --mor-koyu: #6b21a8;       /* Derin gölge ve sınır (border) tonu */
-
+    
+    /* Buz Mavisi Başlık Vurgusu */
+    .buz-mavi-baslik {
+    color: #7dd3fc;
+}
     /* 4. Metin Renkleri */
     --metin-ana: #e2e8f0;      /* Genel paragraf ve liste yazıları (Açık gri/beyaz) */
     --metin-ikincil: #94a3b8;  /* Tarihler ve sönük metinler */
