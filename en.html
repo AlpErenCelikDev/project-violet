@@ -12,10 +12,15 @@
     <!-- SAĞ ÜST DİL SEÇENEĞİ -->
     <header class="ust-menu">
         <div class="dil-cerceve-kutusu">
-            <img src="language_frame.png" alt="Frame" class="dil-arkaplan-cerceve">
+            <img src="frame.png" alt="Frame" class="dil-arkaplan-cerceve">
             <div class="dil-butonlari">
-                <!-- İngilizce sayfasında olduğumuz için TR normal, EN seçili (chosen) olur -->
-                <a href="tr.html"><img src="tr_normal.png" alt="TR" class="dil-btn"></a>
+                <!-- İngilizce sayfasındayız: TR normal durur, fare üstüne gelince _active olur -->
+                <a href="tr.html">
+                    <img src="tr_normal.png" alt="TR" class="dil-btn" 
+                         onmouseover="this.src='tr_active.png';" 
+                         onmouseout="this.src='tr_normal.png';">
+                </a>
+                <!-- EN seçili (chosen) durumdadır -->
                 <a href="en.html"><img src="en_chosen.png" alt="EN" class="dil-btn"></a>
             </div>
         </div>
