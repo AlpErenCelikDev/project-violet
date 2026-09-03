@@ -329,3 +329,7 @@ li {
     h1 { font-size: 14px; line-height: 1.5; }
     h2 { font-size: 12px; line-height: 1.5; }
 }
+/* Otomatik olarak boyanacak başlık vurgusu */
+li strong {
+    color: #7dd3fc;
+}
