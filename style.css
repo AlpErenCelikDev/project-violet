@@ -17,7 +17,6 @@
 
 body {
     margin: 0;
-    /* Font tüm siteye uygulandı ve piksel fonta uygun satır aralığı/boyut verildi */
     font-family: var(--font-oyun);
     font-size: 13px;
     line-height: 1.8;
@@ -69,15 +68,14 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 12px; /* Taşmayı önlemek için 25px'ten 12px'e düşürüldü */
+    gap: 12px;
 }
 
-/* Dil butonları yazı boyutu çerçeveye uyduruldu */
 .dil-btn {
     cursor: pointer;
     text-decoration: none;
     font-family: var(--font-oyun);
-    font-size: 14px; /* Piksel font geniş olduğu için 20px'ten 14px'e küçültüldü */
+    font-size: 14px;
     letter-spacing: 1px;
     color: #c4b5fd;
     text-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
@@ -149,7 +147,6 @@ body {
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
 }
 
-/* Başlıklarda da Cinzel iptal edildi, piksel font kullanılıyor */
 h1, h2 {
     font-family: var(--font-oyun);
     color: #a855f7;
@@ -180,60 +177,37 @@ li {
     margin-bottom: 12px;
 }
 
+/* Yama Notları İçindeki Görseller */
+.yama-resmi {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    border-radius: 8px;
+    margin: 15px 0;
+    border: 1px solid rgba(168, 85, 247, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    display: block;
+}
 
-/* Mobil Uyum */
-@media screen and (max-width: 768px) {
-    .ust-menu {
-        padding: 15px 20px; /* Üst sağ köşeye yasla */
-    }
-    
-    .dil-cerceve-kutusu {
-        width: auto;
-        height: auto;
-    }
+/* Yama Notları İçindeki Videolar */
+.video-kapsayici {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    height: 0;
+    margin: 20px 0;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(168, 85, 247, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
 
-    /* Çerçeve görselini SADECE mobilde gizliyoruz (Masaüstünde kalır) */
-    .dil-arkaplan-cerceve {
-        display: none; 
-    }
-
-    /* Mobilde çerçeve yerine şık, yarı saydam bir "filigran" arka plan */
-    .dil-butonlari {
-        position: relative;
-        background: rgba(15, 15, 20, 0.85); 
-        backdrop-filter: blur(5px);
-        -webkit-backdrop-filter: blur(5px);
-        border: 1px solid rgba(168, 85, 247, 0.4); 
-        border-radius: 8px;
-        padding: 6px 12px;
-        gap: 15px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
-    }
-
-    .dil-btn {
-        font-size: 11px; /* Mobilde yazıları dengeli küçült */
-    }
-
-    .sayfa-govde {
-        margin-top: 70px; /* Dil kutusu ile logonun üst üste binmesini engelle */
-    }
-
-    .ana-logo {
-        max-width: 85%; /* Logoyu mobil ekrana sığacak şekilde optimize et */
-        top: 50%;
-    }
-
-    .ana-icerik {
-        margin-top: 25px; /* İçeriği logonun altından başlat */
-    }
-
-    .kutu {
-        padding: 20px;
-        margin-bottom: 20px;
-    }
-
-    h1 { font-size: 14px; line-height: 1.5; }
-    h2 { font-size: 12px; line-height: 1.5; }
+.video-kapsayici iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 /* Sihir Tozu Efekti (Kar Yağışı Mantığı) */
@@ -243,17 +217,17 @@ li {
     left: 0;
     width: 100vw;
     height: 100vh;
-    pointer-events: none; /* Taneciklerin tıklamaları engellememesi için */
-    z-index: 9999; /* En üstte süzülsün */
+    pointer-events: none;
+    z-index: 9999;
     overflow: hidden;
 }
 
 .sihir-tozu {
     position: absolute;
     top: -10vh;
-    background: #a855f7; /* Project Violet moru */
+    background: #a855f7;
     border-radius: 50%;
-    box-shadow: 0 0 8px #a855f7, 0 0 15px #c4b5fd; /* Büyülü parlama efekti */
+    box-shadow: 0 0 8px #a855f7, 0 0 15px #c4b5fd;
     animation: sihir-yagisi linear infinite;
 }
 
@@ -272,4 +246,57 @@ li {
         transform: translateY(110vh) scale(1.2);
         opacity: 0;
     }
+}
+
+/* Mobil Uyum */
+@media screen and (max-width: 768px) {
+    .ust-menu {
+        padding: 15px 20px;
+    }
+    
+    .dil-cerceve-kutusu {
+        width: auto;
+        height: auto;
+    }
+
+    .dil-arkaplan-cerceve {
+        display: none; 
+    }
+
+    .dil-butonlari {
+        position: relative;
+        background: rgba(15, 15, 20, 0.85); 
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        border: 1px solid rgba(168, 85, 247, 0.4); 
+        border-radius: 8px;
+        padding: 6px 12px;
+        gap: 15px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+    }
+
+    .dil-btn {
+        font-size: 11px;
+    }
+
+    .sayfa-govde {
+        margin-top: 70px;
+    }
+
+    .ana-logo {
+        max-width: 85%;
+        top: 50%;
+    }
+
+    .ana-icerik {
+        margin-top: 25px;
+    }
+
+    .kutu {
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    h1 { font-size: 14px; line-height: 1.5; }
+    h2 { font-size: 12px; line-height: 1.5; }
 }
