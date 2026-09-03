@@ -54,7 +54,7 @@ body {
     z-index: 2;
 }
 
-/* TR ve EN Butonları (Yazılar net okunacak şekilde büyütüldü) */
+/* TR ve EN Butonları (Büyütülmüş ve net) */
 .dil-btn {
     position: absolute;
     top: 52%;
@@ -93,7 +93,7 @@ body {
     display: block;
 }
 
-/* Logonun büyük görselin tam ortasına kilitlenmesi */
+/* Logonun büyük görselin tam merkezine kilitlenmesi */
 .ana-logo {
     position: absolute;
     top: 50%;
@@ -111,10 +111,10 @@ body {
     transform: translate(-50%, -50%) scale(1.02);
 }
 
-/* Ana İçerik ve Kutular (Kesinlikle siyah çerçevenin altından başlar) */
+/* Ana İçerik ve Kutular (Siyah çerçevenin altından başlar) */
 .ana-icerik {
     max-width: 850px;
-    margin: 50px auto 40px auto;
+    margin: 40px auto 40px auto;
     padding: 0 20px;
 }
 
