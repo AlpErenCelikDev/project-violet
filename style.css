@@ -1,3 +1,28 @@
+:root {
+    /* ==========================================================
+       PROJECT VIOLET - MERKEZİ RENK PALETİ
+       ========================================================== */
+    
+    /* 1. Sayfa Arka Planı (Şu anki koyu mor tonu) */
+    --sayfa-arkaplan-rengi: #3f3f74;
+
+    /* 2. İçerik Kutularının Arka Planı (Yarı şeffaf koyu tema) */
+    --kutu-arkaplan: rgba(15, 15, 20, 0.75);
+
+    /* 3. Ana Mor Tonları (Başlıklar, aktif butonlar, vurgular) */
+    --mor-ana: #a855f7;        /* Klasik Project Violet Moru */
+    --mor-acik: #c4b5fd;       /* Hover (üzerine gelince) ve parlama tonu */
+    --mor-koyu: #6b21a8;       /* Derin gölge ve sınır (border) tonu */
+
+    /* 4. Metin Renkleri */
+    --metin-ana: #e2e8f0;      /* Genel paragraf ve liste yazıları (Açık gri/beyaz) */
+    --metin-ikincil: #94a3b8;  /* Tarihler ve sönük metinler */
+
+    /* 5. Efekt ve Parlamalar (Neon Işıklar) */
+    --golge-parlama: rgba(168, 85, 247, 0.6); /* Logo ve kutu parlamaları */
+    --cerceve-cizgi: rgba(168, 85, 247, 0.25); /* Kutuların ince kenar çizgileri */
+}
+
 /* Genel Ayarlar ve Fontlar */
 * {
     box-sizing: border-box;
