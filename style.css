@@ -13,20 +13,20 @@
       aynı formatta yeni bir <link> ekle, sonra aşağıdaki
       --font-oyun değişkenine o fontun adını yaz.
    ============================================================ */
-/*
+
 @font-face {
     font-family: 'OyunFontu';
-    src: url('fonts/SENIN-FONT-DOSYAN.woff2') format('woff2'),
-         url('fonts/SENIN-FONT-DOSYAN.ttf') format('truetype');
+    src: url('fonts/PressStart2P.ttf') format('ttf'),
+         url('fonts/PressStart2P.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
-*/
+
 
 :root {
     /* Font eklediğinde 'Cinzel' yerine kendi font adını ('OyunFontu' gibi) yaz.
        Site genelinde bu değişkeni kullanan her yer otomatik güncellenir. */
-    --font-oyun: 'Cinzel', serif;
+    --font-oyun: 'PressStart2P', serif;
 
     /* Sayfanın genel (sabit) arka plan rengi. arkaplan.png artık düz renk
        olduğu için resme hiç ihtiyaç yok; renk burada tek noktadan kontrol
