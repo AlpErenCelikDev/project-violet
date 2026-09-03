@@ -13,44 +13,28 @@ body {
     color: #e2e8f0;
 }
 
-/* Sabit Üst Bar */
+/* Üst Bar (Sadece sağ üstte dil butonları kalacak şekilde sadeleşti) */
 .ust-menu {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
-    padding: 0 5%;
-    height: 75px; /* Barın sabit yüksekliği */
-    background-image: url('bar.png');
-    background-size: cover;
-    background-position: center;
-    background-color: rgba(10, 10, 15, 0.9);
-    border-bottom: 1px solid rgba(168, 85, 247, 0.4);
-    position: sticky;
+    padding: 20px 40px;
+    position: absolute; /* Sayfanın en üst sağ köşesine sabitler */
     top: 0;
+    right: 0;
+    width: 100%;
     z-index: 100;
 }
 
-/* Sol Taraftaki Logo (Barın içinden hafif aşağı taşar) */
-.logo {
-    height: 90px; /* Bardan büyük tutularak aşağı sarkması sağlanır */
-    width: auto;
-    position: relative;
-    top: 15px; /* Aşağı doğru taşma miktarı */
-    border-radius: 6px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7), 0 0 10px rgba(168, 85, 247, 0.5);
-}
-
-/* Sağ Taraftaki Daha Küçük Dil Çerçevesi Alanı */
+/* Sağ Taraftaki Dil Çerçevesi */
 .dil-cerceve-kutusu {
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 4px 10px;
-    transform: scale(0.85); /* Çerçevenin genel boyutunu küçültür */
+    padding: 6px 12px;
 }
 
-/* Arkadaki çerçeve görseli (language_frame.png) */
 .dil-arkaplan-cerceve {
     position: absolute;
     top: 0;
@@ -61,18 +45,16 @@ body {
     z-index: 1;
 }
 
-/* TR ve EN butonları */
 .dil-butonlari {
     position: relative;
     z-index: 2;
     display: flex;
-    gap: 8px;
+    gap: 10px;
     align-items: center;
 }
 
-/* Dil Butonu Resimleri */
 .dil-btn {
-    height: 22px; /* Küçük çerçeveye uyumlu buton boyutu */
+    height: 24px;
     width: auto;
     display: block;
     transition: transform 0.2s ease, filter 0.2s ease;
@@ -83,10 +65,28 @@ body {
     filter: brightness(1.2);
 }
 
+/* ORTADAKİ BÜYÜK LOGO ALANI */
+.logo-merkez-alani {
+    text-align: center;
+    padding: 60px 20px 20px 20px;
+}
+
+.ana-logo {
+    max-width: 550px; /* Logonun ekranda duracağı ideal büyük genişlik */
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 0 20px rgba(168, 85, 247, 0.6)); /* Etrafına büyüleyici bir mor parlama verir */
+    transition: transform 0.3s ease;
+}
+
+.ana-logo:hover {
+    transform: scale(1.02); /* Üzerine gelince çok hafif nefes alır gibi büyür */
+}
+
 /* Ana İçerik ve Kutular */
 .ana-icerik {
     max-width: 850px;
-    margin: 50px auto 40px auto; /* Logonun aşağı taşma payı düşünülerek üst boşluk artırıldı */
+    margin: 20px auto 40px auto;
     padding: 0 20px;
 }
 
@@ -124,21 +124,16 @@ li {
     margin-bottom: 10px;
 }
 
-/* Mobil Ekran Uyum Ayarları */
+/* Mobil Uyum */
 @media screen and (max-width: 768px) {
     .ust-menu {
-        height: 60px;
-        padding: 0 15px;
+        padding: 15px 20px;
     }
-    .logo {
-        height: 70px; /* Mobilde taşma oranı dengelendi */
-        top: 10px;
+    .logo-merkez-alani {
+        padding: 50px 15px 10px 15px;
     }
-    .dil-cerceve-kutusu {
-        transform: scale(0.75); /* Mobilde daha da kompakt durması için */
-    }
-    .ana-icerik {
-        margin: 35px auto 20px auto;
+    .ana-logo {
+        max-width: 320px; /* Mobilde ekrana sığacak ideal boyut */
     }
     .kutu {
         padding: 25px;
