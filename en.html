@@ -1,170 +1,72 @@
-/* Genel Ayarlar ve Fontlar */
-* {
-    box-sizing: border-box;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Violet - English</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-body {
-    background-image: url('arkaplan.png');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    margin: 0;
-    font-family: 'Inter', sans-serif;
-    color: #e2e8f0;
-}
+    <!-- SAĞ ÜST DİL SEÇENEĞİ -->
+    <header class="ust-menu">
+        <div class="dil-cerceve-kutusu">
+            <img src="frame.png" alt="Frame" class="dil-arkaplan-cerceve">
+            <div class="dil-butonlari">
+                <!-- TR Normal / Active (Sol tarafta üst üste binen katman) -->
+                <a href="tr.html">
+                    <img src="tr_normal.png" alt="TR" class="dil-btn sol-btn" 
+                         onmouseover="this.src='tr_active.png';" 
+                         onmouseout="this.src='tr_normal.png';">
+                </a>
+                <!-- EN Seçili (Sağ tarafta üst üste binen katman) -->
+                <a href="en.html"><img src="en_chosen.png" alt="EN" class="dil-btn sag-btn"></a>
+            </div>
+        </div>
+    </header>
 
-/* Üst Bar */
-.ust-menu {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding: 20px 40px;
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
-    z-index: 100;
-}
+    <!-- ORTADAKİ BÜYÜK GÖRSEL VE LOGO ALANI -->
+    <div class="logo-merkez-alani">
+        <!-- Büyük siyah çerçeveli arka plan resmi -->
+        <img src="arkaplan_cerceve.png" alt="Main Frame" class="ana-arkaplan-resim">
+        <!-- Üstüne tam ortalanacak logo -->
+        <img src="logo.png" alt="Project Violet Logo" class="ana-logo">
+    </div>
 
-/* Sağ Taraftaki Dil Çerçevesi */
-.dil-cerceve-kutusu {
-    position: relative;
-    display: inline-block;
-    width: 150px;  
-    height: 130px; 
-}
+    <!-- ANA İÇERİK (KUTULAR - Kesinlikle resmin altından başlar) -->
+    <main class="ana-icerik">
 
-.dil-arkaplan-cerceve {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    pointer-events: none;
-    z-index: 1;
-}
+        <!-- WELCOME BOX -->
+        <div class="kutu">
+            <h1>Welcome to the Project Violet Universe</h1>
+            <p>In this long journey where fairy tales turn into reality and legends into code, I can't wait for you to witness our game breathing step by step. Building this epic universe from scratch together is my greatest excitement.</p>
+        </div>
 
-.dil-butonlari {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 2;
-}
+        <!-- PATCH 0.2 BOX -->
+        <div class="kutu">
+            <h2>Patch 0.2: Site Update</h2>
+            <span class="tarih">October 15, 2026</span>
+            <p>Web site version 0.2 for Project Violet has been released!</p>
+            <ul>
+                <li><strong>Enhanced Structure:</strong> Modular version tabs (box system) added.</li>
+                <li><strong>New Interface:</strong> Headings and chronological dates updated.</li>
+                <li><strong>Branding:</strong> Official Project Violet logo added!</li>
+            </ul>
+        </div>
+        
+        <!-- PATCH 0.1 BOX -->
+        <div class="kutu">
+            <h2>Patch 0.1: The Starting Spark</h2>
+            <span class="tarih">September 3, 2026</span>
+            <ul>
+                <li><strong>Main Base Constructed:</strong> The official website, the digital fortress of Project Violet, has been successfully deployed.</li>
+                <li><strong>System Online:</strong> The historic first logs have been recorded and communication channels are fully open.</li>
+                <li><strong>Gears are Turning:</strong> Core systems are activated and the game development process has officially begun!</li>
+            </ul>
+        </div>
 
-/* TR ve EN Butonları (Yazılar büyütüldü) */
-.dil-btn {
-    position: absolute;
-    top: 52%;
-    transform: translateY(-50%);
-    height: 60%; /* Butonlar çerçeve içinde daha büyük ve okunaklı olacak şekilde artırıldı */
-    width: auto;
-    cursor: pointer;
-    transition: transform 0.2s ease;
-}
+    </main>
 
-.dil-btn:hover {
-    transform: translateY(-50%) scale(1.08);
-}
-
-.sol-btn {
-    left: 17%; 
-}
-
-.sag-btn {
-    right: 17%; 
-}
-
-/* ORTADAKİ BÜYÜK RESİM VE LOGO ALANI */
-.logo-merkez-alani {
-    text-align: center;
-    position: relative; /* Logonun resmin üzerine tam oturabilmesi için referans alındı */
-    max-width: 850px;
-    margin: 40px auto 0 auto; /* Sayfanın üstünden uygun boşluk */
-    padding: 0 20px;
-}
-
-/* Siyah çerçeveli büyük arka plan resmi (Varsa eklediğin resim, yoksa genel yapı) */
-/* Not: Eğer HTML'de bu resmi eklediğin bir <img> veya div varsa buraya bağlanır */
-
-.ana-logo {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* Büyük resmin tam ortasına kilitlendi */
-    max-width: 520px;
-    width: 80%;
-    height: auto;
-    filter: drop-shadow(0 0 20px rgba(168, 85, 247, 0.6));
-    transition: transform 0.3s ease;
-    z-index: 5;
-}
-
-.ana-logo:hover {
-    transform: translate(-50%, -50%) scale(1.02);
-}
-
-/* Ana İçerik ve Kutular (Tamamen siyah çerçevenin altından başlar) */
-.ana-icerik {
-    max-width: 850px;
-    margin: 60px auto 40px auto; /* Büyük görsel ile yazılar arasında net bir mesafe bırakıldı */
-    padding: 0 20px;
-}
-
-.kutu {
-    background: rgba(15, 15, 20, 0.75);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    padding: 40px;
-    border-radius: 12px;
-    border: 1px solid rgba(168, 85, 247, 0.2);
-    margin-bottom: 30px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
-}
-
-h1, h2 {
-    font-family: 'Cinzel', serif;
-    color: #a855f7;
-    margin-top: 0;
-}
-
-.tarih {
-    display: block;
-    font-size: 14px;
-    color: #94a3b8;
-    margin-bottom: 15px;
-    font-style: italic;
-}
-
-ul {
-    line-height: 1.7;
-    padding-left: 20px;
-}
-
-li {
-    margin-bottom: 10px;
-}
-
-/* Mobil Uyum */
-@media screen and (max-width: 768px) {
-    .ust-menu {
-        padding: 15px 20px;
-    }
-    .logo-merkez-alani {
-        margin-top: 20px;
-    }
-    .ana-logo {
-        max-width: 280px;
-    }
-    .ana-icerik {
-        margin-top: 40px;
-    }
-    .kutu {
-        padding: 25px;
-        margin-bottom: 20px;
-    }
-    h1 { font-size: 24px; }
-    h2 { font-size: 20px; }
-}
+</body>
+</html>
