@@ -91,7 +91,13 @@ body {
     font-size: 13px;
     line-height: 1.8;
     color: var(--metin-ana);
+    
+    /* BURASI EKLENDİ: Arka plan resmini tüm sayfaya sabitler */
     background-color: var(--sayfa-arkaplan-rengi);
+    background-image: url('../images/arkaplan.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 /* ==========================================================
