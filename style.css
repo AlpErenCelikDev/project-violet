@@ -17,7 +17,10 @@
 
 body {
     margin: 0;
-    font-family: 'Inter', sans-serif;
+    /* Font tüm siteye uygulandı ve piksel fonta uygun satır aralığı/boyut verildi */
+    font-family: var(--font-oyun);
+    font-size: 13px;
+    line-height: 1.8;
     color: #e2e8f0;
     background-color: var(--sayfa-arkaplan-rengi);
 }
@@ -54,6 +57,7 @@ body {
     z-index: 1;
 }
 
+/* TR ve EN Seçenekleri - Boşluk daraltıldı */
 .dil-butonlari {
     position: absolute;
     top: 0;
@@ -65,15 +69,15 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 25px; 
+    gap: 12px; /* Taşmayı önlemek için 25px'ten 12px'e düşürüldü */
 }
 
+/* Dil butonları yazı boyutu çerçeveye uyduruldu */
 .dil-btn {
     cursor: pointer;
     text-decoration: none;
     font-family: var(--font-oyun);
-    font-size: 20px;
-    font-weight: 700;
+    font-size: 14px; /* Piksel font geniş olduğu için 20px'ten 14px'e küçültüldü */
     letter-spacing: 1px;
     color: #c4b5fd;
     text-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
@@ -145,27 +149,35 @@ body {
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
 }
 
+/* Başlıklarda da Cinzel iptal edildi, piksel font kullanılıyor */
 h1, h2 {
-    font-family: 'Cinzel', serif;
+    font-family: var(--font-oyun);
     color: #a855f7;
     margin-top: 0;
+    line-height: 1.4;
+}
+
+h1 {
+    font-size: 20px;
+}
+
+h2 {
+    font-size: 16px;
 }
 
 .tarih {
     display: block;
-    font-size: 14px;
+    font-size: 11px;
     color: #94a3b8;
     margin-bottom: 15px;
-    font-style: italic;
 }
 
 ul {
-    line-height: 1.7;
     padding-left: 20px;
 }
 
 li {
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
 /* Mobil Uyum */
@@ -186,6 +198,6 @@ li {
         padding: 25px;
         margin-bottom: 20px;
     }
-    h1 { font-size: 24px; }
-    h2 { font-size: 20px; }
+    h1 { font-size: 16px; }
+    h2 { font-size: 14px; }
 }
