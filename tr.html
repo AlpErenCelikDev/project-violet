@@ -81,5 +81,37 @@
 
     </div>
 
+<!-- Sihir Efekti Konteyneri ve Scripti -->
+    <div class="sihir-kutusu" id="sihirKutusu"></div>
+
+    <script>
+        function sihirYarat() {
+            const kutu = document.getElementById('sihirKutusu');
+            const sihir = document.createElement('div');
+            sihir.classList.add('sihir-tozu');
+
+            // Rastgele boyut (2px ile 4px arası)
+            const boyut = Math.random() * 2 + 2;
+            sihir.style.width = boyut + 'px';
+            sihir.style.height = boyut + 'px';
+
+            // Ekranın herhangi bir yatay noktasından başlasın
+            sihir.style.left = Math.random() * 100 + 'vw';
+
+            // Düşüş hızı (6 saniye ile 14 saniye arası rastgele süzülme)
+            sihir.style.animationDuration = Math.random() * 8 + 6 + 's';
+
+            kutu.appendChild(sihir);
+
+            // Sayfada şişkinlik yapmaması için düşen elementi DOM'dan temizle
+            setTimeout(() => {
+                sihir.remove();
+            }, 14000); 
+        }
+
+        // Her 400 milisaniyede bir yeni bir sihir tozu oluştur
+        setInterval(sihirYarat, 400);
+    </script>
+    
 </body>
 </html>
