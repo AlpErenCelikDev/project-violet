@@ -181,18 +181,14 @@ body {
     position: relative;
     text-align: center;
     aspect-ratio: 2560 / 1440;
+    /* DİKKAT: Buradaki .ana-arkaplan-resim kaldırıldığı için 
+       artık arkadaki çift resmi engellemiş olduk. */
 }
 
+/* ESKİ .ana-arkaplan-resim sınıfını tamamen silebilirsin ya da 
+   aşağıdaki gibi boş bırakabilirsin ki başka yerde hata vermesin */
 .ana-arkaplan-resim {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    display: block;
-    background-image: url('../images/arkaplan.png');
-    background-size: cover;
-    background-position: center;
-    border-radius: 10px;
+    display: none; 
 }
 
 .ana-logo {
