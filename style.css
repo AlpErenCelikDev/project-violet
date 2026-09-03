@@ -13,20 +13,20 @@ body {
     color: #e2e8f0;
 }
 
-/* Üst Bar (Sadece sağ üstte dil butonları kalacak şekilde sadeleşti) */
+/* Üst Bar */
 .ust-menu {
     display: flex;
     justify-content: flex-end;
     align-items: center;
     padding: 20px 40px;
-    position: absolute; /* Sayfanın en üst sağ köşesine sabitler */
+    position: absolute;
     top: 0;
     right: 0;
     width: 100%;
     z-index: 100;
 }
 
-/* Sağ Taraftaki Dil Çerçevesi (Mikroskopla seçilme sorunu için rahat tıklanabilir boyuta getirildi) */
+/* Sağ Taraftaki Dil Çerçevesi */
 .dil-cerceve-kutusu {
     position: relative;
     display: inline-block;
@@ -34,7 +34,6 @@ body {
     height: 130px; 
 }
 
-/* En alttaki sabit çerçeve görseli (frame.png) */
 .dil-arkaplan-cerceve {
     position: absolute;
     top: 0;
@@ -46,7 +45,6 @@ body {
     z-index: 1;
 }
 
-/* Butonların yerleştiği alan */
 .dil-butonlari {
     position: absolute;
     top: 0;
@@ -56,12 +54,12 @@ body {
     z-index: 2;
 }
 
-/* TR ve EN Butonlarının Üst Üste / Yan Yana Tam Konumlanması */
+/* TR ve EN Butonları (Yazılar net okunacak şekilde büyütüldü) */
 .dil-btn {
     position: absolute;
     top: 52%;
     transform: translateY(-50%);
-    height: 40%; /* Çerçevenin büyüklüğüne göre buton boyutu dengelendi */
+    height: 65%; 
     width: auto;
     cursor: pointer;
     transition: transform 0.2s ease;
@@ -71,38 +69,52 @@ body {
     transform: translateY(-50%) scale(1.08);
 }
 
-/* Sol taraftaki buton (TR) */
 .sol-btn {
-    left: 20%; 
+    left: 15%; 
 }
 
-/* Sağ taraftaki buton (EN) */
 .sag-btn {
-    right: 20%; 
+    right: 15%; 
 }
 
-/* ORTADAKİ BÜYÜK LOGO ALANI (Aşağı kaydırıldı) */
+/* ORTADAKİ BÜYÜK GÖRSEL VE LOGO ALANI */
 .logo-merkez-alani {
+    position: relative;
     text-align: center;
-    padding: 120px 20px 40px 20px; /* Üst boşluk artırılarak logo aşağı indirildi */
+    max-width: 850px;
+    margin: 40px auto 0 auto;
+    padding: 0 20px;
 }
 
-.ana-logo {
-    max-width: 550px; /* Logonun ekranda duracağı ideal büyük genişlik */
+/* Siyah çerçeveli büyük arka plan resmi */
+.ana-arkaplan-resim {
     width: 100%;
     height: auto;
-    filter: drop-shadow(0 0 20px rgba(168, 85, 247, 0.6)); /* Etrafına büyüleyici bir mor parlama verir */
+    display: block;
+}
+
+/* Logonun büyük görselin tam ortasına kilitlenmesi */
+.ana-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 500px;
+    width: 70%;
+    height: auto;
+    filter: drop-shadow(0 0 20px rgba(168, 85, 247, 0.6));
     transition: transform 0.3s ease;
+    z-index: 5;
 }
 
 .ana-logo:hover {
-    transform: scale(1.02); /* Üzerine gelince çok hafif nefes alır gibi büyür */
+    transform: translate(-50%, -50%) scale(1.02);
 }
 
-/* Ana İçerik ve Kutular (Logonun ve arka plan görselinin altından başlatıldı) */
+/* Ana İçerik ve Kutular (Kesinlikle siyah çerçevenin altından başlar) */
 .ana-icerik {
     max-width: 850px;
-    margin: 40px auto 40px auto; 
+    margin: 50px auto 40px auto;
     padding: 0 20px;
 }
 
@@ -138,23 +150,4 @@ ul {
 
 li {
     margin-bottom: 10px;
-}
-
-/* Mobil Uyum */
-@media screen and (max-width: 768px) {
-    .ust-menu {
-        padding: 15px 20px;
-    }
-    .logo-merkez-alani {
-        padding: 80px 15px 20px 15px;
-    }
-    .ana-logo {
-        max-width: 320px; /* Mobilde ekrana sığacak ideal boyut */
-    }
-    .kutu {
-        padding: 25px;
-        margin-bottom: 20px;
-    }
-    h1 { font-size: 24px; }
-    h2 { font-size: 20px; }
 }
