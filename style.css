@@ -1,0 +1,25 @@
+body {
+    background-image: url('arkaplan.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.icerik-kutusu {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 40px;
+    border-radius: 10px;
+}
+
+h1, h2 {
+    color: #a855f7; /* Mor tema vurgusu */
+}
+
+ul {
+    line-height: 1.6;
+}
