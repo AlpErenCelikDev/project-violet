@@ -23,3 +23,21 @@ h1, h2 {
 ul {
     line-height: 1.6;
 }
+.dil-secenekleri {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+}
+
+.dil-secenekleri a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 5px 10px;
+    transition: color 0.3s;
+}
+
+.dil-secenekleri a:hover {
+    color: #a855f7; /* Fareyle üzerine gelince mor parlar */
+}
