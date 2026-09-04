@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Violet - Geliştirici Blogu</title>
+
+    <!-- Sitenin Ortak CSS Dosyası -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- FontAwesome İkon Kütüphanesi -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon.png">
+</head>
+<body>
+
+    <!-- ÜST BAR VE DİL SEÇİMİ -->
+    <header class="ust-menu">
+        <div class="dil-cerceve-kutusu">
+            <img src="assets/images/language_frame.png" alt="Frame" class="dil-arkaplan-cerceve">
+            <div class="dil-butonlari">
+                <a href="blog-tr.html" class="dil-btn dil-aktif">TR</a>
+                <a href="blog-en.html" class="dil-btn">EN</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="sayfa-govde">
+
+        <!-- LOGO VE SAYFA MENÜSÜ -->
+        <div class="logo-merkez-alani">
+            <nav class="sayfa-menu">
+                <a href="tr.html">Ana Sayfa</a>
+                <a href="blog-tr.html" class="aktif">Geliştirici Blogu</a>
+                <a href="faq-tr.html">SSS</a>
+            </nav>
+            <img src="assets/images/logo.png" alt="Project Violet Logo" class="ana-logo">
+        </div>
+
+        <!-- ANA İÇERİK -->
+        <main class="ana-icerik">
+
+            <div class="kutu">
+                <h1 class="baslik-mor">Geliştirici Blogu</h1>
+                <p>Ana sayfadaki yama notları neyin değiştiğini özetliyor. Burası ise işin derinine indiğimiz yer: aldığımız kararlar, karşılaştığımız zorluklar, ilham kaynaklarımız ve <strong>Project Violet</strong>'in dünyasını inşa ederken öğrendiğimiz her şey.</p>
+            </div>
+
+            <!-- YENİ_YAMA_BURAYA -->
+
+            <div class="kutu blog-yazisi">
+                <h2 class="baslik-mor">Site Version 1.1</h2>
+                <span class="tarih">5 Eylül 2026</span>
+                <p>Project Violet web sitesi <strong>v1.1</strong> yayınlandı.</p>
+                <ul>
+                    <li>Panel <strong>çerçeveleri</strong> güncellendi.</li>
+                    <li><strong>İletişim sayfası</strong> eklendi.</li>
+                    <li>Alt bilgi (footer) alanları eklendi.</li>
+                    <li><strong>SSS panelindeki</strong> yazı tipi hatası giderildi.</li>
+                </ul>
+            </div>
+
+            <!-- YAZI 1 -->
+            <div class="kutu blog-yazisi">
+                <h2 class="baslik-mor">Site Version 1.0</h2>
+                <span class="tarih">4 Eylül 2026</span>
+                <p>Project Violet web sitesi <strong>v1.0</strong> yayınlandı.</p>
+                <ul>
+                    <li>Sayfa içi <strong>gezinme menüsü</strong> eklendi.</li>
+                    <li>Geliştirici Blogu eklendi.</li>
+                    <li>SSS sayfası eklendi.</li>
+                    <li><strong>İngilizce dil seçeneği</strong> eklendi.</li>
+                    <li>Özelleştirilmiş mobil dil seçim kutusu eklendi.</li>
+                </ul>
+            </div>
+
+        </main>
+
+        <!-- TAM EKRAN PASTEL ALT BİLGİ (FOOTER) ALANI -->
+        <footer class="site-footer">
+            <div class="footer-sol">
+                <p class="yasal-metin">
+                    Project Violet, 'geçici proje adıyla' yürütülen bağımsız, bireysel ve tamamen deneysel bir çalışmadır. Sitede yer alan hiçbir içerik ticari bir beklenti veya resmi bir kurum temsiliyeti içermez.
+                </p>
+                <span class="telif">© 2026 Project Violet. Tüm hakları saklıdır.</span>
+            </div>
+            <div class="footer-sag">
+                <a href="https://www.reddit.com" target="_blank" rel="noopener noreferrer" title="Reddit">
+                    <i class="fab fa-reddit-alien"></i>
+                </a>
+                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" title="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="contact-tr.html" title="İletişim">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- SİHİR TOZU EFEKTİ -->
+    <div class="sihir-kutusu" id="sihirKutusu"></div>
+    <script>
+        function sihirYarat() {
+            const kutu = document.getElementById('sihirKutusu');
+            if (!kutu) return;
+            const sihir = document.createElement('div');
+            sihir.classList.add('sihir-tozu');
+            const boyut = Math.random() * 2 + 2;
+            sihir.style.width = boyut + 'px';
+            sihir.style.height = boyut + 'px';
+            sihir.style.left = Math.random() * 100 + 'vw';
+            sihir.style.animationDuration = Math.random() * 8 + 6 + 's';
+            kutu.appendChild(sihir);
+            setTimeout(() => { sihir.remove(); }, 14000);
+        }
+        setInterval(sihirYarat, 400);
+    </script>
+
+</body>
+</html>
