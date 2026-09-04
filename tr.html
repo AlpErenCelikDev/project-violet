@@ -17,6 +17,26 @@
         .baslik-mavi { color: #38bdf8; }
         .baslik-turuncu { color: #fb923c; }
         .baslik-pembe { color: #f472b6; }
+        .sayfa-menu {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+  margin: 6px 0 28px;
+}
+.sayfa-menu a {
+  color: #e2e8f0;
+  text-decoration: none;
+  font-size: 15px;
+  padding: 6px 2px;
+  border-bottom: 2px solid transparent;
+  transition: color .2s ease, border-color .2s ease;
+}
+.sayfa-menu a:hover,
+.sayfa-menu a.aktif {
+  color: #a855f7;
+  border-bottom-color: #a855f7;
+}
     </style>
 </head>
 <body>
@@ -40,7 +60,11 @@
             
             <img src="assets/images/logo.png" alt="Project Violet Logo" class="ana-logo">
         </div>
-
+                <nav class="sayfa-menu">
+        <a href="tr.html" class="aktif">Ana Sayfa</a>
+        <a href="faq-tr.html">SSS</a>
+        <a href="blog-tr.html">Geliştirici Blogu</a>
+        </nav>
         <!-- ANA İÇERİK (KUTULAR) -->
         <main class="ana-icerik">
 
