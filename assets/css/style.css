@@ -258,7 +258,7 @@ body {
 }
 
 /* ==========================================================
-   8. İÇERİK KUTULARI VE TİPOGRAFİ
+   8. İÇERİK KUTULARI (9-SLICE PİKSEL ÇERÇEVE) VE TİPOGRAFİ
    ========================================================== */
 .ana-icerik {
     margin-top: calc(-18.44% + 28px);
@@ -266,13 +266,65 @@ body {
 }
 
 .kutu {
-    background: var(--kutu-arkaplan);
+    position: relative;
+    /* 16px çerçeve + yazının nefes alması için iç boşluk */
+    padding: 32px; 
+    margin-bottom: 30px;
+    
+    /* Yumuşak/Pastel ve temaya uyumlu iç dolgu rengi */
+    background-color: rgba(45, 35, 60, 0.95); 
+
+    /* 8 Parça Çerçeve Görselleri */
+    background-image: 
+        url('../images/frame_image/corner_upperleft.png'),
+        url('../images/frame_image/corner_upperright.png'),
+        url('../images/frame_image/corner_lowerleft.png'),
+        url('../images/frame_image/corner_lowerright.png'),
+        url('../images/frame_image/upper.png'),
+        url('../images/frame_image/lower.png'),
+        url('../images/frame_image/left.png'),
+        url('../images/frame_image/right.png');
+        
+    /* Parçaların Konumları */
+    background-position: 
+        0 0,           /* Sol Üst */
+        100% 0,        /* Sağ Üst */
+        0 100%,        /* Sol Alt */
+        100% 100%,     /* Sağ Alt */
+        16px 0,        /* Üst Kenar */
+        16px 100%,     /* Alt Kenar */
+        0 16px,        /* Sol Kenar */
+        100% 16px;     /* Sağ Kenar */
+        
+    /* Parçaların Boyutları (Köşeler 16x16, kenarlar boşlukları dolduracak kadar esner) */
+    background-size: 
+        16px 16px,
+        16px 16px,
+        16px 16px,
+        16px 16px,
+        calc(100% - 32px) 16px,
+        calc(100% - 32px) 16px,
+        16px calc(100% - 32px),
+        16px calc(100% - 32px);
+        
+    /* Parçaların Tekrarlanma Kuralları */
+    background-repeat: 
+        no-repeat,
+        no-repeat,
+        no-repeat,
+        no-repeat,
+        repeat-x, /* Üst kenar yatay çoğalır */
+        repeat-x, /* Alt kenar yatay çoğalır */
+        repeat-y, /* Sol kenar dikey çoğalır */
+        repeat-y; /* Sağ kenar dikey çoğalır */
+
+    /* Piksellerin bulanıklaşmasını engeller, keskin piksel sanatını korur */
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+
+    /* Arka plan bulanıklığı ve gölge (Retro atmosfere derinlik katar) */
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    padding: 40px;
-    border-radius: 12px;
-    border: 1px solid var(--cerceve-cizgi);
-    margin-bottom: 30px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
 }
 
@@ -555,7 +607,8 @@ li {
     }
 
     .kutu { 
-        padding: 20px; 
+        /* Mobilde de çerçevenin yazıların üstüne binmemesi için */
+        padding: 24px; 
         margin-bottom: 20px; 
     }
 
