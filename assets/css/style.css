@@ -33,6 +33,9 @@
     --renk-19-gri-acik: #e2e8f0;     /* Genel Metin Grisi */
     --renk-20-gri-koyu: #94a3b8;     /* Pasif / Tarih Grisi */
 
+    /* Ekstra Başlık Renkleri (HTML'den taşındı) */
+    --baslik-yesil-alternatif: #22c55e;
+
     /* ----------------------------------------------------------
        3. METİN & EFEKT VARSAYILANLARI
        ---------------------------------------------------------- */
@@ -44,8 +47,7 @@
 }
 
 /* ==========================================================
-   4. EDİTÖR RENK SINIFLARI (HTML İçinde Doğrudan Kullanım)
-   Örn: <span class="c-buz-mavi">Metin</span>
+   4. EDİTÖR VE BAŞLIK RENK SINIFLARI 
    ========================================================== */
 .c-mor-ana       { color: var(--renk-1-mor-ana) !important; }
 .c-mor-acik      { color: var(--renk-2-mor-acik) !important; }
@@ -68,7 +70,12 @@
 .c-gri-acik      { color: var(--renk-19-gri-acik) !important; }
 .c-gri-koyu      { color: var(--renk-20-gri-koyu) !important; }
 
-/* Eski uyumluluk için özel başlık sınıfı */
+/* Özel Başlık Sınıfları (HTML içinden CSS'e taşındı) */
+.baslik-mor      { color: var(--renk-1-mor-ana); }
+.baslik-yesil    { color: var(--baslik-yesil-alternatif); }
+.baslik-mavi     { color: var(--renk-5-neon-mavi); }
+.baslik-turuncu  { color: var(--renk-13-turuncu); }
+.baslik-pembe    { color: var(--renk-16-pembe); }
 .buz-mavi-baslik { color: var(--renk-4-buz-mavi); }
 
 /* ==========================================================
@@ -132,7 +139,7 @@ body {
     justify-content: center;
     gap: 32px;
     flex-wrap: wrap;
-    margin: 0;
+    margin: 6px 0 28px; /* HTML'den alındı */
     z-index: 10;
 }
 
@@ -289,7 +296,8 @@ li {
     margin-bottom: 12px;
 }
 
-li strong {
+/* Sadece .kutu içindeki kalın metinler için özel ayar (HTML'den taşındı) */
+.kutu strong, .kutu b {
     color: var(--renk-4-buz-mavi);
 }
 
@@ -402,21 +410,53 @@ li strong {
 }
 
 /* ==========================================================
-   11. MOBİL UYUM (RESPONSIVE DESIGN)
+   11. MOBİL UYUM (RESPONSIVE DESIGN) - GÜNCELLENDİ
    ========================================================== */
 @media screen and (max-width: 768px) {
+    
+    body {
+        /* iOS arkaplan piksellenme/esneme hatasını çözer */
+        background-attachment: scroll;
+        background-position: top center;
+    }
+
     .ust-menu { 
         padding: 15px 20px; 
-        flex-direction: column; /* Mobilde sekmeler ve dil butonları üst üste binsin */
+        flex-direction: column; 
         gap: 15px;
     }
     
-    .sayfa-menu {
+    .logo-merkez-alani {
+        /* Sabit oran iptal, dikey esnek dizilim */
+        aspect-ratio: auto; 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         gap: 15px;
     }
 
+    .ana-logo {
+        /* Logoyu mobilde serbest bırak ve üst üste binmesini engelle */
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        width: 100%;
+        max-width: 280px; 
+    }
+
+    .sayfa-menu {
+        gap: 10px; 
+        margin: 0;
+    }
+
+    .sayfa-menu a {
+        font-size: 11px; 
+        padding: 4px;
+    }
+
     .dil-cerceve-kutusu { 
-        position: relative; /* Sağ üstten ortaya almak için */
+        position: relative;
         right: 0;
         transform: none;
         width: auto; 
@@ -447,13 +487,9 @@ li strong {
         margin-top: 20px; 
     }
 
-    .ana-logo { 
-        max-width: 85%; 
-        top: 50%; 
-    }
-
     .ana-icerik { 
-        margin-top: 25px; 
+        /* Eksi margin değerini iptal et */
+        margin-top: 20px; 
     }
 
     .kutu { 
