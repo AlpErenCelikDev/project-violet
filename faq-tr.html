@@ -14,80 +14,93 @@
     <link rel="icon" type="image/png" href="assets/images/favicon.png">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon.png">
 
-    <!-- SSS (FAQ) Sayfasına Özel Tasarım Kodları -->
+    <!-- SSS Sayfasına Özel Uyumlu Tasarım Katmanı -->
     <style>
-        .faq-konteyner {
-            display: flex;
-            flex-direction: column;
-            gap: 15px; /* Her bir sorunun arasındaki boşluk */
-            margin-top: 20px;
-        }
-
-        .faq-kutu {
+        .faq-kapsayici {
+            padding: 48px;
             text-align: left;
-            padding: 20px;
-            /* Ana CSS dosyanızdaki .kutu özelliklerini (çerçeve vs.) korur, ekstra ayar yapar */
         }
 
-        .faq-kutu summary {
-            list-style: none; /* Standart tarayıcı okunu gizler */
-            font-family: var(--font-oyun, sans-serif);
-            font-size: 16px;
+        .faq-satir {
+            background: transparent;
+            border: none;
+            border-bottom: 1px dashed var(--cerceve-cizgi);
+            box-shadow: none;
+            margin: 0;
+            padding: 20px 0;
+            border-radius: 0;
+        }
+
+        .faq-satir:last-child {
+            border-bottom: none;
+        }
+
+        .faq-satir summary {
+            list-style: none;
+            font-family: var(--font-oyun);
+            font-size: 14px;
             font-weight: bold;
             position: relative;
-            padding-right: 40px; /* Sağdaki ikon için boşluk bırakır */
+            padding-right: 40px;
             cursor: pointer;
             outline: none;
-            color: #ffffff;
-            transition: color 0.3s ease;
+            color: var(--renk-18-beyaz);
+            transition: color 0.2s ease;
+            margin: 0;
+            background: transparent;
         }
 
-        /* Eski Webkit (Chrome vb.) tarayıcılar için standart oku gizleme */
-        .faq-kutu summary::-webkit-details-marker {
-            display: none; 
+        .faq-satir summary::-webkit-details-marker {
+            display: none;
         }
 
-        /* 1) Soruya fareyle gelindiğinde veya 2) Soru açıldığında: Başlık BUZ MAVİSİ olur */
-        .faq-kutu summary:hover,
-        .faq-kutu[open] summary {
-            color: #a0d8ef; /* Buz mavisi */
+        .faq-satir summary:hover,
+        .faq-satir[open] summary {
+            color: var(--renk-4-buz-mavi);
         }
 
-        /* Sağ Taraftaki '+' İkonu (FontAwesome kullanılarak) */
-        .faq-kutu summary::after {
-            content: '\f067'; /* fa-plus ikonu kodu */
+        .faq-satir summary::after {
+            content: '\f067';
             font-family: "Font Awesome 6 Free";
             font-weight: 900;
             position: absolute;
             right: 0;
             top: 50%;
             transform: translateY(-50%);
-            font-size: 18px;
-            transition: transform 0.3s ease, color 0.3s ease; /* Dönüş animasyonu süresi */
-        }
-
-        /* Soru Açıldığında '+' İkonu 45 derece dönerek 'X' şeklini alır */
-        .faq-kutu[open] summary::after {
-            transform: translateY(-50%) rotate(45deg); 
-            color: #a0d8ef; /* İkon da buz mavisi olur */
-        }
-
-        /* Açılan Cevap Metninin Tasarımı */
-        .faq-icerik {
-            margin-top: 15px;
-            padding-top: 15px;
-            border-top: 1px dashed rgba(255, 255, 255, 0.2); /* Soru ile cevap arasına hafif kesik çizgi */
             font-size: 14px;
-            line-height: 1.6;
-            color: var(--metin-ana, #cccccc);
+            color: var(--renk-1-mor-ana);
+            transition: transform 0.3s ease, color 0.3s ease;
         }
 
-        .faq-icerik p {
+        .faq-satir[open] summary::after {
+            transform: translateY(-50%) rotate(45deg);
+            color: var(--renk-4-buz-mavi);
+        }
+
+        .faq-cevap {
+            margin-top: 15px;
+            font-family: 'FiraSans', sans-serif;
+            font-size: 14px;
+            line-height: 1.65;
+            color: var(--renk-19-gri-acik);
+            padding-right: 20px;
+        }
+
+        .faq-cevap p {
             margin-bottom: 10px;
         }
         
-        .faq-icerik p:last-child {
+        .faq-cevap p:last-child {
             margin-bottom: 0;
+        }
+
+        @media screen and (max-width: 768px) {
+            .faq-kapsayici {
+                padding: 32px;
+            }
+            .faq-satir summary {
+                font-size: 12px;
+            }
         }
     </style>
 </head>
@@ -122,83 +135,83 @@
             <!-- Üst Bilgi Kutusu -->
             <div class="kutu" style="text-align: center;">
                 <h1 class="baslik-mor">Sıkça Sorulan Sorular</h1>
-                <p>Project Violet hakkında en çok merak edilen soruları burada bir araya getirdik.</p>
+                <p style="margin-top: 10px; margin-bottom: 0;">Project Violet hakkında en çok merak edilen soruları burada bir araya getirdik.</p>
             </div>
 
-            <!-- Soruların Listelendiği Alan (Ayrı Sekmeler) -->
-            <div class="faq-konteyner">
+            <!-- TÜM SORULARIN OLDUĞU TEK ANA KUTU -->
+            <div class="kutu faq-kapsayici">
 
-                <details class="kutu faq-kutu" open>
+                <details class="faq-satir" open>
                     <summary>Project Violet nedir?</summary>
-                    <div class="faq-icerik">
+                    <div class="faq-cevap">
                         <p>Project Violet; hikâye, RPG mekanikleri ve sandbox sistemlerini bir araya getiren bağımsız bir oyun projesidir.</p>
                         <p>Oyuncular kendi mesleklerini seçebilir, dünyayı keşfedebilir ve yaşanan olayların bir parçası olabilir.</p>
                     </div>
                 </details>
 
-                <details class="kutu faq-kutu">
+                <details class="faq-satir">
                     <summary>Oyun ne zaman çıkacak?</summary>
-                    <div class="faq-icerik">
-                        <p>Henüz kesin bir çıkış tarihi yok.</p>
+                    <div class="faq-cevap">
+                        <p>Henüz kesin bir çıkış tarihi bulunmuyor.</p>
                         <p>Project Violet erken geliştirme aşamasında ve önceliğimiz oyunun temel sistemlerini sağlam bir şekilde oluşturmak.</p>
                     </div>
                 </details>
 
-                <details class="kutu faq-kutu">
+                <details class="faq-satir">
                     <summary>Hangi platformlarda çıkacak?</summary>
-                    <div class="faq-icerik">
-                        <p>Oyun asıl olarak PC için geliştirilmektedir.</p>
-                        <p>Geliştirme süreci ilerledikçe resmi duyurular bu site üzerinden yapılacak.</p>
+                    <div class="faq-cevap">
+                        <p>Oyun öncelikli olarak PC platformu için geliştirilmektedir.</p>
+                        <p>Geliştirme süreci ilerledikçe farklı platformlarle ilgili resmi duyurular yapılacaktır.</p>
                     </div>
                 </details>
 
-                <details class="kutu faq-kutu">
+                <details class="faq-satir">
                     <summary>Kaç farklı meslek olacak?</summary>
-                    <div class="faq-icerik">
-                        <p>Birden fazla meslek bulunacak ve her meslek farklı bir oynanış tarzı sunacak.</p>
-                        <p>Şu anda üzerinde çalışılan meslekler arasında madencilik, ticaret, demircilik, çiftçilik ve savaş odaklı roller bulunuyor.</p>
+                    <div class="faq-cevap">
+                        <p>Birden fazla meslek yer alacak ve her biri farklı bir oynanış deneyimi sunacaktır.</p>
+                        <p>Şu anda üzerinde çalışılan alanlar arasında madencilik, ticaret, demircilik, çiftçilik ve savaş odaklı roller bulunmaktadır.</p>
                     </div>
                 </details>
 
-                <details class="kutu faq-kutu">
-                    <summary>Project Violet multiplayer olacak mı?</summary>
-                    <div class="faq-icerik">
-                        <p>Çok oyunculu özellikler proje fikirleri arasında bulunuyor.</p>
-                        <p>Ancak multiplayer sisteminin kapsamı ve oyunun hangi aşamasında uygulanacağı henüz kesinleşmedi.</p>
+                <details class="faq-satir">
+                    <summary>Project Violet çok oyunculu (multiplayer) olacak mı?</summary>
+                    <div class="faq-cevap">
+                        <p>Çok oyunculu özellikler fikir aşamasında değerlendirilmektedir.</p>
+                        <p>Ancak sistemin kapsamı ve projenin hangi aşamasında ekleneceği henüz netleşmemiştir.</p>
                     </div>
                 </details>
 
-                <details class="kutu faq-kutu">
+                <details class="faq-satir">
                     <summary>Hikâye oyunun tamamını mı oluşturacak?</summary>
-                    <div class="faq-icerik">
+                    <div class="faq-cevap">
                         <p>Hayır.</p>
-                        <p>Project Violet'in hikâye tarafının yanında sandbox sistemleri de bulunuyor.</p>
-                        <p>Hikâyenin sona ermesinden sonra dünyanın yaşamaya devam etmesi hedefleniyor.</p>
+                        <p>Project Violet, ana hikâye kurgusunun yanı sıra dinamik sandbox sistemleri barındırır.</p>
+                        <p>Senaryo tamamlandıktan sonra bile oyun dünyasının kendi içinde akmaya devam etmesi hedeflenmektedir.</p>
                     </div>
                 </details>
 
-                <details class="kutu faq-kutu">
-                    <summary>Oyunun grafikleri nasıl olacak?</summary>
-                    <div class="faq-icerik">
-                        <p>Project Violet pixel art tarzında geliştiriliyor.</p>
-                        <p>Hedefimiz kendine özgü, atmosferik ve tutarlı bir görsel dünya oluşturmak.</p>
+                <details class="faq-satir">
+                    <summary>Oyunun görsel tarzı nasıl olacak?</summary>
+                    <div class="faq-cevap">
+                        <p>Project Violet, özgün pixel art estetiğiyle tasarlanmaktadır.</p>
+                        <p>Temel amaç, oyunculara atmosferik ve tutarlı bir görsel dünya sunmaktır.</p>
                     </div>
                 </details>
 
-                <details class="kutu faq-kutu">
+                <details class="faq-satir">
                     <summary>Oyunu kim geliştiriyor?</summary>
-                    <div class="faq-icerik">
-                        <p>Project Violet bağımsız bir oyun projesi olarak geliştiriliyor.</p>
-                        <p>Geliştirme süreci boyunca projenin nasıl büyüdüğünü ve neler öğrendiğimizi Geliştirici Blogu üzerinden paylaşacağız.</p>
+                    <div class="faq-cevap">
+                        <p>Project Violet bağımsız bir bireysel geliştirme projesidir.</p>
+                        <p>Gelişmeleri, karşılaşılan teknik zorlukları ve edinilen deneyimleri Geliştirici Blogu üzerinden paylaşıyoruz.</p>
                     </div>
                 </details>
 
-                <details class="kutu faq-kutu">
-                    <summary>Fragman veya demo var mı?</summary>
-                    <div class="faq-icerik">
-                        <p>Henüz değil.</p>
-                        <p>İlk hedefimiz oynanabilir temel sistemleri oluşturmak.</p>
-                        <p>İlk ciddi oynanabilir içerikler hazır olduğunda burada paylaşılacak.</p>
+                <details class="faq-satir">
+                    <summary>Oynanabilir bir demo veya fragman yayınlandı mı?</summary>
+                    <div class="faq-cevap">
+                        <p>Henüz yayınlanmadı.</p>
+                        <p>Şu anki odak noktamız temel mekaniklerin kararlı bir yapıya kavuşturulmasıdır.</p>
+                        <p>İlk oynanabilir materyaller hazır olduğunda toplulukla paylaşılacaktır.</p>
                     </div>
                 </details>
 
@@ -206,7 +219,7 @@
 
         </main>
         
-        <!-- TAM EKRAN PASTEL ALT BİLGİ (FOOTER) ALANI -->
+        <!-- ALT BİLGİ (FOOTER) -->
         <footer class="site-footer">
             <div class="footer-sol">
                 <p class="yasal-metin">
