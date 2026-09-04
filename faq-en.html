@@ -13,6 +13,96 @@
 
     <link rel="icon" type="image/png" href="assets/images/favicon.png">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon.png">
+
+    <!-- SSS Sayfasına Özel Uyumlu Tasarım Katmanı -->
+    <style>
+        .faq-kapsayici {
+            padding: 48px;
+            text-align: left;
+        }
+
+        .faq-satir {
+            background: transparent;
+            border: none;
+            border-bottom: 1px dashed var(--cerceve-cizgi);
+            box-shadow: none;
+            margin: 0;
+            padding: 20px 0;
+            border-radius: 0;
+        }
+
+        .faq-satir:last-child {
+            border-bottom: none;
+        }
+
+        .faq-satir summary {
+            list-style: none;
+            font-family: var(--font-oyun);
+            font-size: 14px;
+            font-weight: bold;
+            position: relative;
+            padding-right: 40px;
+            cursor: pointer;
+            outline: none;
+            color: var(--renk-18-beyaz);
+            transition: color 0.2s ease;
+            margin: 0;
+            background: transparent;
+        }
+
+        .faq-satir summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-satir summary:hover,
+        .faq-satir[open] summary {
+            color: var(--renk-4-buz-mavi);
+        }
+
+        .faq-satir summary::after {
+            content: '\f067';
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 14px;
+            color: var(--renk-1-mor-ana);
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .faq-satir[open] summary::after {
+            transform: translateY(-50%) rotate(45deg);
+            color: var(--renk-4-buz-mavi);
+        }
+
+        .faq-cevap {
+            margin-top: 15px;
+            font-family: 'FiraSans', sans-serif;
+            font-size: 14px;
+            line-height: 1.65;
+            color: var(--renk-19-gri-acik);
+            padding-right: 20px;
+        }
+
+        .faq-cevap p {
+            margin-bottom: 10px;
+        }
+        
+        .faq-cevap p:last-child {
+            margin-bottom: 0;
+        }
+
+        @media screen and (max-width: 768px) {
+            .faq-kapsayici {
+                padding: 32px;
+            }
+            .faq-satir summary {
+                font-size: 12px;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -42,67 +132,85 @@
         <!-- ANA İÇERİK (SSS KUTULARI) -->
         <main class="ana-icerik">
 
-            <div class="kutu">
+            <div class="kutu" style="text-align: center;">
                 <h1 class="baslik-mor">Frequently Asked Questions</h1>
-                <p>Here's what people most often ask about Project Violet.</p>
+                <p style="margin-top: 10px; margin-bottom: 0;">Here's what people most often ask about Project Violet.</p>
             </div>
 
-            <div class="kutu">
+            <div class="kutu faq-kapsayici">
 
-                <details class="soru-cevap" open>
+                <details class="faq-satir" open>
                     <summary>What is Project Violet?</summary>
-                    <p>Project Violet is an independent game project that combines a story, RPG mechanics, and sandbox systems.</p>
-                    <p>Players can choose their own professions, explore the world, and become a part of the unfolding events.</p>
+                    <div class="faq-cevap">
+                        <p>Project Violet is an independent game project that combines a story, RPG mechanics, and sandbox systems.</p>
+                        <p>Players can choose their own professions, explore the world, and become a part of the unfolding events.</p>
+                    </div>
                 </details>
 
-                <details class="soru-cevap">
+                <details class="faq-satir">
                     <summary>When will the game be released?</summary>
-                    <p>There is no exact release date yet.</p>
-                    <p>Project Violet is in early development, and our priority is to build the core systems of the game solidly.</p>
+                    <div class="faq-cevap">
+                        <p>There is no exact release date yet.</p>
+                        <p>Project Violet is in early development, and our priority is to build the core systems of the game solidly.</p>
+                    </div>
                 </details>
 
-                <details class="soru-cevap">
+                <details class="faq-satir">
                     <summary>What platforms will it be released on?</summary>
-                    <p>The game is primarily being developed for PC.</p>
-                    <p>As the development process progresses, official announcements will be made through this site.</p>
+                    <div class="faq-cevap">
+                        <p>The game is primarily being developed for PC.</p>
+                        <p>As the development process progresses, official announcements will be made through this site.</p>
+                    </div>
                 </details>
 
-                <details class="soru-cevap">
+                <details class="faq-satir">
                     <summary>How many different professions will there be?</summary>
-                    <p>There will be multiple professions, and each one will offer a different gameplay style.</p>
-                    <p>Roles currently being worked on include mining, trading, blacksmithing, farming, and combat-focused paths.</p>
+                    <div class="faq-cevap">
+                        <p>There will be multiple professions, and each one will offer a different gameplay style.</p>
+                        <p>Roles currently being worked on include mining, trading, blacksmithing, farming, and combat-focused paths.</p>
+                    </div>
                 </details>
 
-                <details class="soru-cevap">
+                <details class="faq-satir">
                     <summary>Will Project Violet be multiplayer?</summary>
-                    <p>Multiplayer features are among the project ideas.</p>
-                    <p>However, the scope of the multiplayer system and at what stage of the game it will be implemented have not been finalized yet.</p>
+                    <div class="faq-cevap">
+                        <p>Multiplayer features are among the project ideas.</p>
+                        <p>However, the scope of the multiplayer system and at what stage of the game it will be implemented have not been finalized yet.</p>
+                    </div>
                 </details>
 
-                <details class="soru-cevap">
+                <details class="faq-satir">
                     <summary>Will the story make up the entirety of the game?</summary>
-                    <p>No.</p>
-                    <p>Alongside the story aspect, Project Violet also features sandbox systems.</p>
-                    <p>The world is intended to continue living even after the story comes to an end.</p>
+                    <div class="faq-cevap">
+                        <p>No.</p>
+                        <p>Alongside the story aspect, Project Violet also features sandbox systems.</p>
+                        <p>The world is intended to continue living even after the story comes to an end.</p>
+                    </div>
                 </details>
 
-                <details class="soru-cevap">
+                <details class="faq-satir">
                     <summary>What will the game's graphics look like?</summary>
-                    <p>Project Violet is being developed in a pixel art style.</p>
-                    <p>Our goal is to create a unique, atmospheric, and cohesive visual world.</p>
+                    <div class="faq-cevap">
+                        <p>Project Violet is being developed in a pixel art style.</p>
+                        <p>Our goal is to create a unique, atmospheric, and cohesive visual world.</p>
+                    </div>
                 </details>
 
-                <details class="soru-cevap">
+                <details class="faq-satir">
                     <summary>Who is developing the game?</summary>
-                    <p>Project Violet is being developed as an independent game project.</p>
-                    <p>Throughout the development process, we will share how the project grows and what we learn via the Dev Blog.</p>
+                    <div class="faq-cevap">
+                        <p>Project Violet is being developed as an independent game project.</p>
+                        <p>Throughout the development process, we will share how the project grows and what we learn via the Dev Blog.</p>
+                    </div>
                 </details>
 
-                <details class="soru-cevap">
+                <details class="faq-satir">
                     <summary>Is there a trailer or demo?</summary>
-                    <p>Not yet.</p>
-                    <p>Our first goal is to build the playable core systems.</p>
-                    <p>Once the first serious playable contents are ready, they will be shared here.</p>
+                    <div class="faq-cevap">
+                        <p>Not yet.</p>
+                        <p>Our first goal is to build the playable core systems.</p>
+                        <p>Once the first serious playable contents are ready, they will be shared here.</p>
+                    </div>
                 </details>
 
             </div>
