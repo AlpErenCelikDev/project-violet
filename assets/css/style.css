@@ -33,7 +33,7 @@
     --renk-19-gri-acik: #e2e8f0;     /* Genel Metin Grisi */
     --renk-20-gri-koyu: #94a3b8;     /* Pasif / Tarih Grisi */
 
-    /* Ekstra Başlık Renkleri (HTML'den taşındı) */
+    /* Ekstra Başlık Renkleri */
     --baslik-yesil-alternatif: #22c55e;
 
     /* ----------------------------------------------------------
@@ -70,7 +70,7 @@
 .c-gri-acik      { color: var(--renk-19-gri-acik) !important; }
 .c-gri-koyu      { color: var(--renk-20-gri-koyu) !important; }
 
-/* Özel Başlık Sınıfları (HTML içinden CSS'e taşındı) */
+/* Özel Başlık Sınıfları */
 .baslik-mor      { color: var(--renk-1-mor-ana); }
 .baslik-yesil    { color: var(--baslik-yesil-alternatif); }
 .baslik-mavi     { color: var(--renk-5-neon-mavi); }
@@ -88,6 +88,14 @@
 @font-face {
     font-family: 'OyunFontu';
     src: url('../fonts/PressStart2P.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Yasal metin için Fira Sans eklendi */
+@font-face {
+    font-family: 'FiraSans';
+    src: url('../fonts/FiraSans-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -120,7 +128,6 @@ body {
     z-index: 100;
 }
 
-/* Üst bar arkaplan görseli */
 .ust-bar-arkaplan {
     position: absolute;
     top: 0;
@@ -133,7 +140,6 @@ body {
     object-fit: cover;
 }
 
-/* Sayfa menüsü sekmeleri (Ana Sayfa, SSS, Blog) */
 .sayfa-menu {
     display: flex;
     justify-content: center;
@@ -143,7 +149,6 @@ body {
     z-index: 10;
 }
 
-/* Normal sekmelerin rengi */
 .sayfa-menu a {
     color: var(--renk-19-gri-acik);
     text-decoration: none;
@@ -154,14 +159,12 @@ body {
     font-weight: bold;
 }
 
-/* SEÇİLİ VEYA ÜZERİNE GELİNEN SEKMENİN RENGİ (Buz Mavisi Yapıldı) */
 .sayfa-menu a:hover,
 .sayfa-menu a.aktif {
     color: var(--renk-4-buz-mavi);
     border-bottom-color: var(--renk-4-buz-mavi);
 }
 
-/* Sağ üst dil çerçevesi */
 .dil-cerceve-kutusu {
     position: absolute;
     right: 20px;
@@ -410,7 +413,65 @@ li {
 }
 
 /* ==========================================================
-   11. MOBİL UYUM (RESPONSIVE DESIGN)
+   11. ALT BİLGİ (FOOTER & YASAL METİN)
+   ========================================================== */
+.site-footer {
+    max-width: 850px;
+    margin: 0 auto 40px auto;
+    padding: 25px 35px;
+    background: var(--kutu-arkaplan);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 12px;
+    border: 1px solid var(--cerceve-cizgi);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-family: 'FiraSans', sans-serif;
+}
+
+.footer-sol {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-width: 550px;
+}
+
+.yasal-metin {
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--renk-20-gri-koyu);
+    margin: 0;
+}
+
+.telif {
+    font-size: 13px;
+    color: var(--renk-2-mor-acik);
+}
+
+.footer-sag {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+}
+
+.footer-sag a {
+    color: var(--renk-4-buz-mavi);
+    font-size: 20px;
+    text-decoration: none;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.footer-sag a:hover {
+    color: var(--renk-18-beyaz);
+    transform: scale(1.15);
+}
+
+/* ==========================================================
+   12. MOBİL UYUM (RESPONSIVE DESIGN)
    ========================================================== */
 @media screen and (max-width: 768px) {
     
@@ -440,6 +501,11 @@ li {
         transform: none;
         width: 100%;
         max-width: 280px; 
+    }
+
+    /* Mobilde logoya tıklayınca kaymasını engeller */
+    .ana-logo:hover {
+        transform: scale(1.02);
     }
 
     .sayfa-menu {
@@ -495,26 +561,16 @@ li {
 
     h1 { font-size: 14px; line-height: 1.5; }
     h2 { font-size: 12px; line-height: 1.5; }
+
+    /* Footer mobil uyumu */
+    .site-footer {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        padding: 20px;
+    }
+    .footer-sol {
+        align-items: center;
+        max-width: 100%;
+    }
 }
-
-/* ==========================================================
-   11. MOBİL UYUM (RESPONSIVE DESIGN)
-   ========================================================== */
-@media screen and (max-width: 768px) {
-    
-    /* ... (diğer mobil kodların burada duruyor) ... */
-
-    .kutu { 
-        padding: 20px; 
-        margin-bottom: 20px; 
-    }
-
-    h1 { font-size: 14px; line-height: 1.5; }
-    h2 { font-size: 12px; line-height: 1.5; }
-
-    /* BURAYA EKLİYORSUN: Mobilde logoya tıklayınca kaymasını engeller */
-    .ana-logo:hover {
-        transform: scale(1.02);
-    }
-} /* <-- En sondaki kapanış parantezinin İÇİNDE olduğundan emin ol */
-
