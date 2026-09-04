@@ -13,6 +13,83 @@
 
     <link rel="icon" type="image/png" href="assets/images/favicon.png">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon.png">
+
+    <!-- SSS (FAQ) Sayfasına Özel Tasarım Kodları -->
+    <style>
+        .faq-konteyner {
+            display: flex;
+            flex-direction: column;
+            gap: 15px; /* Her bir sorunun arasındaki boşluk */
+            margin-top: 20px;
+        }
+
+        .faq-kutu {
+            text-align: left;
+            padding: 20px;
+            /* Ana CSS dosyanızdaki .kutu özelliklerini (çerçeve vs.) korur, ekstra ayar yapar */
+        }
+
+        .faq-kutu summary {
+            list-style: none; /* Standart tarayıcı okunu gizler */
+            font-family: var(--font-oyun, sans-serif);
+            font-size: 16px;
+            font-weight: bold;
+            position: relative;
+            padding-right: 40px; /* Sağdaki ikon için boşluk bırakır */
+            cursor: pointer;
+            outline: none;
+            color: #ffffff;
+            transition: color 0.3s ease;
+        }
+
+        /* Eski Webkit (Chrome vb.) tarayıcılar için standart oku gizleme */
+        .faq-kutu summary::-webkit-details-marker {
+            display: none; 
+        }
+
+        /* 1) Soruya fareyle gelindiğinde veya 2) Soru açıldığında: Başlık BUZ MAVİSİ olur */
+        .faq-kutu summary:hover,
+        .faq-kutu[open] summary {
+            color: #a0d8ef; /* Buz mavisi */
+        }
+
+        /* Sağ Taraftaki '+' İkonu (FontAwesome kullanılarak) */
+        .faq-kutu summary::after {
+            content: '\f067'; /* fa-plus ikonu kodu */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 18px;
+            transition: transform 0.3s ease, color 0.3s ease; /* Dönüş animasyonu süresi */
+        }
+
+        /* Soru Açıldığında '+' İkonu 45 derece dönerek 'X' şeklini alır */
+        .faq-kutu[open] summary::after {
+            transform: translateY(-50%) rotate(45deg); 
+            color: #a0d8ef; /* İkon da buz mavisi olur */
+        }
+
+        /* Açılan Cevap Metninin Tasarımı */
+        .faq-icerik {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px dashed rgba(255, 255, 255, 0.2); /* Soru ile cevap arasına hafif kesik çizgi */
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--metin-ana, #cccccc);
+        }
+
+        .faq-icerik p {
+            margin-bottom: 10px;
+        }
+        
+        .faq-icerik p:last-child {
+            margin-bottom: 0;
+        }
+    </style>
 </head>
 <body>
 
@@ -42,67 +119,87 @@
         <!-- ANA İÇERİK (SSS KUTULARI) -->
         <main class="ana-icerik">
 
-            <div class="kutu">
+            <!-- Üst Bilgi Kutusu -->
+            <div class="kutu" style="text-align: center;">
                 <h1 class="baslik-mor">Sıkça Sorulan Sorular</h1>
                 <p>Project Violet hakkında en çok merak edilen soruları burada bir araya getirdik.</p>
             </div>
 
-            <div class="kutu">
+            <!-- Soruların Listelendiği Alan (Ayrı Sekmeler) -->
+            <div class="faq-konteyner">
 
-                <details class="soru-cevap" open>
+                <details class="kutu faq-kutu" open>
                     <summary>Project Violet nedir?</summary>
-                    <p>Project Violet; hikâye, RPG mekanikleri ve sandbox sistemlerini bir araya getiren bağımsız bir oyun projesidir.</p>
-                    <p>Oyuncular kendi mesleklerini seçebilir, dünyayı keşfedebilir ve yaşanan olayların bir parçası olabilir.</p>
+                    <div class="faq-icerik">
+                        <p>Project Violet; hikâye, RPG mekanikleri ve sandbox sistemlerini bir araya getiren bağımsız bir oyun projesidir.</p>
+                        <p>Oyuncular kendi mesleklerini seçebilir, dünyayı keşfedebilir ve yaşanan olayların bir parçası olabilir.</p>
+                    </div>
                 </details>
 
-                <details class="soru-cevap">
+                <details class="kutu faq-kutu">
                     <summary>Oyun ne zaman çıkacak?</summary>
-                    <p>Henüz kesin bir çıkış tarihi yok.</p>
-                    <p>Project Violet erken geliştirme aşamasında ve önceliğimiz oyunun temel sistemlerini sağlam bir şekilde oluşturmak.</p>
+                    <div class="faq-icerik">
+                        <p>Henüz kesin bir çıkış tarihi yok.</p>
+                        <p>Project Violet erken geliştirme aşamasında ve önceliğimiz oyunun temel sistemlerini sağlam bir şekilde oluşturmak.</p>
+                    </div>
                 </details>
 
-                <details class="soru-cevap">
+                <details class="kutu faq-kutu">
                     <summary>Hangi platformlarda çıkacak?</summary>
-                    <p>Oyun asıl olarak PC için geliştirilmektedir.</p>
-                    <p>Geliştirme süreci ilerledikçe resmi duyurular bu site üzerinden yapılacak.</p>
+                    <div class="faq-icerik">
+                        <p>Oyun asıl olarak PC için geliştirilmektedir.</p>
+                        <p>Geliştirme süreci ilerledikçe resmi duyurular bu site üzerinden yapılacak.</p>
+                    </div>
                 </details>
 
-                <details class="soru-cevap">
+                <details class="kutu faq-kutu">
                     <summary>Kaç farklı meslek olacak?</summary>
-                    <p>Birden fazla meslek bulunacak ve her meslek farklı bir oynanış tarzı sunacak.</p>
-                    <p>Şu anda üzerinde çalışılan meslekler arasında madencilik, ticaret, demircilik, çiftçilik ve savaş odaklı roller bulunuyor.</p>
+                    <div class="faq-icerik">
+                        <p>Birden fazla meslek bulunacak ve her meslek farklı bir oynanış tarzı sunacak.</p>
+                        <p>Şu anda üzerinde çalışılan meslekler arasında madencilik, ticaret, demircilik, çiftçilik ve savaş odaklı roller bulunuyor.</p>
+                    </div>
                 </details>
 
-                <details class="soru-cevap">
+                <details class="kutu faq-kutu">
                     <summary>Project Violet multiplayer olacak mı?</summary>
-                    <p>Çok oyunculu özellikler proje fikirleri arasında bulunuyor.</p>
-                    <p>Ancak multiplayer sisteminin kapsamı ve oyunun hangi aşamasında uygulanacağı henüz kesinleşmedi.</p>
+                    <div class="faq-icerik">
+                        <p>Çok oyunculu özellikler proje fikirleri arasında bulunuyor.</p>
+                        <p>Ancak multiplayer sisteminin kapsamı ve oyunun hangi aşamasında uygulanacağı henüz kesinleşmedi.</p>
+                    </div>
                 </details>
 
-                <details class="soru-cevap">
+                <details class="kutu faq-kutu">
                     <summary>Hikâye oyunun tamamını mı oluşturacak?</summary>
-                    <p>Hayır.</p>
-                    <p>Project Violet'in hikâye tarafının yanında sandbox sistemleri de bulunuyor.</p>
-                    <p>Hikâyenin sona ermesinden sonra dünyanın yaşamaya devam etmesi hedefleniyor.</p>
+                    <div class="faq-icerik">
+                        <p>Hayır.</p>
+                        <p>Project Violet'in hikâye tarafının yanında sandbox sistemleri de bulunuyor.</p>
+                        <p>Hikâyenin sona ermesinden sonra dünyanın yaşamaya devam etmesi hedefleniyor.</p>
+                    </div>
                 </details>
 
-                <details class="soru-cevap">
+                <details class="kutu faq-kutu">
                     <summary>Oyunun grafikleri nasıl olacak?</summary>
-                    <p>Project Violet pixel art tarzında geliştiriliyor.</p>
-                    <p>Hedefimiz kendine özgü, atmosferik ve tutarlı bir görsel dünya oluşturmak.</p>
+                    <div class="faq-icerik">
+                        <p>Project Violet pixel art tarzında geliştiriliyor.</p>
+                        <p>Hedefimiz kendine özgü, atmosferik ve tutarlı bir görsel dünya oluşturmak.</p>
+                    </div>
                 </details>
 
-                <details class="soru-cevap">
+                <details class="kutu faq-kutu">
                     <summary>Oyunu kim geliştiriyor?</summary>
-                    <p>Project Violet bağımsız bir oyun projesi olarak geliştiriliyor.</p>
-                    <p>Geliştirme süreci boyunca projenin nasıl büyüdüğünü ve neler öğrendiğimizi Geliştirici Blogu üzerinden paylaşacağız.</p>
+                    <div class="faq-icerik">
+                        <p>Project Violet bağımsız bir oyun projesi olarak geliştiriliyor.</p>
+                        <p>Geliştirme süreci boyunca projenin nasıl büyüdüğünü ve neler öğrendiğimizi Geliştirici Blogu üzerinden paylaşacağız.</p>
+                    </div>
                 </details>
 
-                <details class="soru-cevap">
+                <details class="kutu faq-kutu">
                     <summary>Fragman veya demo var mı?</summary>
-                    <p>Henüz değil.</p>
-                    <p>İlk hedefimiz oynanabilir temel sistemleri oluşturmak.</p>
-                    <p>İlk ciddi oynanabilir içerikler hazır olduğunda burada paylaşılacak.</p>
+                    <div class="faq-icerik">
+                        <p>Henüz değil.</p>
+                        <p>İlk hedefimiz oynanabilir temel sistemleri oluşturmak.</p>
+                        <p>İlk ciddi oynanabilir içerikler hazır olduğunda burada paylaşılacak.</p>
+                    </div>
                 </details>
 
             </div>
