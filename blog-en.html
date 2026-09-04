@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project Violet - Dev Blog</title>
+
+<link rel="stylesheet" href="assets/css/style.css">
+
+<!-- FAVICON -->
+<link rel="icon" type="image/png" href="assets/images/favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon.png">
+
+<!-- Heading color classes (same as tr.html) -->
+<style>
+.baslik-mor { color: #a855f7; }
+.baslik-yesil { color: #22c55e; }
+.baslik-mavi { color: #38bdf8; }
+.baslik-turuncu { color: #fb923c; }
+.baslik-pembe { color: #f472b6; }
+
+/* In-page menu: Home / FAQ / Dev Blog */
+.sayfa-menu {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+  margin: 6px 0 28px;
+}
+.sayfa-menu a {
+  color: #e2e8f0;
+  text-decoration: none;
+  font-size: 15px;
+  padding: 6px 2px;
+  border-bottom: 2px solid transparent;
+  transition: color .2s ease, border-color .2s ease;
+}
+.sayfa-menu a:hover,
+.sayfa-menu a.aktif {
+  color: #a855f7;
+  border-bottom-color: #a855f7;
+}
+
+/* Blog posts */
+.blog-yazisi p { color: #e2e8f0; line-height: 1.65; }
+</style>
+</head>
+<body>
+
+<!-- TOP-RIGHT LANGUAGE SWITCH -->
+<header class="ust-menu">
+<div class="dil-cerceve-kutusu">
+<img src="assets/images/language_frame.png" alt="Frame" class="dil-arkaplan-cerceve">
+<div class="dil-butonlari">
+<a href="blog-tr.html" class="dil-btn">TR</a>
+<a href="blog-en.html" class="dil-btn dil-aktif">EN</a>
+</div>
+</div>
+</header>
+
+<!-- SINGLE WIDTH WRAPPER -->
+<div class="sayfa-govde">
+
+<!-- LOGO AREA -->
+<div class="logo-merkez-alani">
+<img src="assets/images/logo.png" alt="Project Violet Logo" class="ana-logo">
+</div>
+
+<!-- IN-PAGE MENU -->
+<nav class="sayfa-menu">
+<a href="en.html">Home</a>
+<a href="faq-en.html">FAQ</a>
+<a href="blog-en.html" class="aktif">Dev Blog</a>
+</nav>
+
+<!-- MAIN CONTENT -->
+<main class="ana-icerik">
+
+<div class="kutu">
+<h1 class="baslik-mor">Dev Blog</h1>
+<p>The patch notes on the homepage sum up what changed. This is where we go deeper: the decisions, the challenges, the inspiration, and everything we're learning while building Project Violet's world.</p>
+</div>
+
+<!-- POST 1 -->
+<div class="kutu blog-yazisi">
+<h2 class="baslik-mor">Welcome to the Dev Blog</h2>
+<span class="tarih">September 4, 2026</span>
+<p>The patch boxes on the homepage give you a quick summary of what changed. This blog exists to go deeper: the decisions behind the scenes, the challenges we run into, our inspirations, and what we're learning while building Project Violet's world. Whenever there's something worth telling in more depth, you'll find it here.</p>
+</div>
+
+<!-- POST 2 - sample post, edit or remove as you like -->
+<div class="kutu blog-yazisi">
+<h2 class="baslik-yesil">Building a World From Scratch</h2>
+<span class="tarih">September 4, 2026</span>
+<p>The hardest part of making a game is usually not what ends up on screen, but the world built behind it. For Project Violet, we're starting by nailing down the rules, the atmosphere, and the balance between darkness and magic that runs through everything.</p>
+<p>Every decision we make along the way will be shared here in future posts. For now, all we can say is: there's a long road ahead, and it's an exciting one.</p>
+</div>
+
+<!-- POST 3 - sample post, edit or remove as you like -->
+<div class="kutu blog-yazisi">
+<h2 class="baslik-mavi">Why "Project Violet"?</h2>
+<span class="tarih">September 4, 2026</span>
+<p>There's a small story behind this name, and we're keeping it under wraps for now. As the game's own story comes together, we'll uncover where the name came from, together. Until then, hang on to your curiosity.</p>
+</div>
+
+</main>
+</div>
+
+<!-- Magic dust effect and script -->
+<div class="sihir-kutusu" id="sihirKutusu"></div>
+<script>
+function sihirYarat() {
+    const kutu = document.getElementById('sihirKutusu');
+    if (!kutu) return;
+    const sihir = document.createElement('div');
+    sihir.classList.add('sihir-tozu');
+    const boyut = Math.random() * 2 + 2;
+    sihir.style.width = boyut + 'px';
+    sihir.style.height = boyut + 'px';
+    sihir.style.left = Math.random() * 100 + 'vw';
+    sihir.style.animationDuration = Math.random() * 8 + 6 + 's';
+    kutu.appendChild(sihir);
+    setTimeout(() => { sihir.remove(); }, 14000);
+}
+setInterval(sihirYarat, 400);
+</script>
+
+</body>
+</html>

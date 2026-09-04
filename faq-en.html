@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project Violet - Frequently Asked Questions</title>
+
+<link rel="stylesheet" href="assets/css/style.css">
+
+<!-- FAVICON -->
+<link rel="icon" type="image/png" href="assets/images/favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon.png">
+
+<!-- Heading color classes (same as tr.html) -->
+<style>
+.baslik-mor { color: #a855f7; }
+.baslik-yesil { color: #22c55e; }
+.baslik-mavi { color: #38bdf8; }
+.baslik-turuncu { color: #fb923c; }
+.baslik-pembe { color: #f472b6; }
+
+/* In-page menu: Home / FAQ / Dev Blog */
+.sayfa-menu {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+  margin: 6px 0 28px;
+}
+.sayfa-menu a {
+  color: #e2e8f0;
+  text-decoration: none;
+  font-size: 15px;
+  padding: 6px 2px;
+  border-bottom: 2px solid transparent;
+  transition: color .2s ease, border-color .2s ease;
+}
+.sayfa-menu a:hover,
+.sayfa-menu a.aktif {
+  color: #a855f7;
+  border-bottom-color: #a855f7;
+}
+
+/* FAQ accordion */
+.soru-cevap {
+  border-bottom: 1px solid rgba(226,232,240,0.12);
+  padding: 4px 0;
+}
+.soru-cevap:last-of-type { border-bottom: none; }
+.soru-cevap summary {
+  cursor: pointer;
+  list-style: none;
+  font-size: 17px;
+  font-weight: 600;
+  color: #f1f5f9;
+  padding: 14px 34px 14px 0;
+  position: relative;
+}
+.soru-cevap summary::-webkit-details-marker { display: none; }
+.soru-cevap summary::after {
+  content: "+";
+  position: absolute;
+  right: 4px;
+  top: 10px;
+  font-size: 22px;
+  color: #a855f7;
+  transition: transform .2s ease;
+}
+.soru-cevap[open] summary::after { transform: rotate(45deg); }
+.soru-cevap p {
+  color: #cbd5e1;
+  line-height: 1.65;
+  margin: 0;
+  padding: 0 0 16px;
+}
+</style>
+</head>
+<body>
+
+<!-- TOP-RIGHT LANGUAGE SWITCH -->
+<header class="ust-menu">
+<div class="dil-cerceve-kutusu">
+<img src="assets/images/language_frame.png" alt="Frame" class="dil-arkaplan-cerceve">
+<div class="dil-butonlari">
+<a href="faq-tr.html" class="dil-btn">TR</a>
+<a href="faq-en.html" class="dil-btn dil-aktif">EN</a>
+</div>
+</div>
+</header>
+
+<!-- SINGLE WIDTH WRAPPER -->
+<div class="sayfa-govde">
+
+<!-- LOGO AREA -->
+<div class="logo-merkez-alani">
+<img src="assets/images/logo.png" alt="Project Violet Logo" class="ana-logo">
+</div>
+
+<!-- IN-PAGE MENU -->
+<nav class="sayfa-menu">
+<a href="en.html">Home</a>
+<a href="faq-en.html" class="aktif">FAQ</a>
+<a href="blog-en.html">Dev Blog</a>
+</nav>
+
+<!-- MAIN CONTENT -->
+<main class="ana-icerik">
+
+<div class="kutu">
+<h1 class="baslik-mor">Frequently Asked Questions</h1>
+<p>Here's what people most often ask about Project Violet. If you can't find your answer, you'll be able to reach us through the Contact page, coming soon.</p>
+</div>
+
+<div class="kutu">
+
+<details class="soru-cevap" open>
+<summary>What is Project Violet?</summary>
+<p>Project Violet is a game being built from scratch, set in a story where darkness and magic intertwine. We're currently in an early announcement and development stage, and this site is the main place where the whole process is shared openly from day one.</p>
+</details>
+
+<details class="soru-cevap">
+<summary>When will the game be released?</summary>
+<p>We don't have a release date to share yet. The project is still in an early stage — you can follow every step, big or small, through the patch notes on the homepage and the Dev Blog.</p>
+</details>
+
+<details class="soru-cevap">
+<summary>What platforms will Project Violet be on?</summary>
+<p>Platform decisions will become clear as development moves forward. As soon as a platform is confirmed, it will be announced here first.</p>
+</details>
+
+<details class="soru-cevap">
+<summary>Who's developing the project?</summary>
+<p>Project Violet is an independent (indie) project built with a lot of passion. Details about the team and the process will be shared over time on the Dev Blog.</p>
+</details>
+
+<details class="soru-cevap">
+<summary>What does the name "Project Violet" mean?</summary>
+<p>The story behind the name is being kept a secret for now. We want that mystery to come to light together with the game's own story.</p>
+</details>
+
+<details class="soru-cevap">
+<summary>Is there a trailer or a playable demo?</summary>
+<p>Not yet. As the visuals and the technical side come together, the first pieces of content will be announced here and on the Dev Blog.</p>
+</details>
+
+<details class="soru-cevap">
+<summary>How can I follow development updates?</summary>
+<p>Check the patch boxes on the homepage and the Dev Blog page regularly. Once social media accounts are added, links will appear here too.</p>
+</details>
+
+<details class="soru-cevap">
+<summary>Where can I send feedback, suggestions, or bug reports?</summary>
+<p>You'll be able to reach us through the Contact page, coming soon. Until then, feel free to keep a note of anything you'd like to share.</p>
+</details>
+
+</div>
+
+</main>
+</div>
+
+<!-- Magic dust effect and script -->
+<div class="sihir-kutusu" id="sihirKutusu"></div>
+<script>
+function sihirYarat() {
+    const kutu = document.getElementById('sihirKutusu');
+    if (!kutu) return;
+    const sihir = document.createElement('div');
+    sihir.classList.add('sihir-tozu');
+    const boyut = Math.random() * 2 + 2;
+    sihir.style.width = boyut + 'px';
+    sihir.style.height = boyut + 'px';
+    sihir.style.left = Math.random() * 100 + 'vw';
+    sihir.style.animationDuration = Math.random() * 8 + 6 + 's';
+    kutu.appendChild(sihir);
+    setTimeout(() => { sihir.remove(); }, 14000);
+}
+setInterval(sihirYarat, 400);
+</script>
+
+</body>
+</html>
