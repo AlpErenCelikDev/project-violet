@@ -13,6 +13,39 @@
 
     <link rel="icon" type="image/png" href="assets/images/favicon.png">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon.png">
+
+    <!-- Bu sayfaya özel taşma engelleyici mobil stiller -->
+    <style>
+        .iletisim-kutusu {
+            text-align: center; 
+            padding: 50px 40px;
+        }
+        
+        .email-link {
+            display: inline-block; 
+            font-family: var(--font-oyun, sans-serif); 
+            font-size: 14px; 
+            color: var(--renk-11-sari); 
+            text-decoration: none; 
+            transition: color 0.2s ease;
+            word-break: break-all; /* Taşan e-postayı alt satıra kırar */
+            overflow-wrap: break-word;
+        }
+        
+        .email-link:hover {
+            color: var(--renk-18-beyaz);
+        }
+
+        /* Mobil Cihazlar İçin Uyumluluk */
+        @media (max-width: 768px) {
+            .iletisim-kutusu {
+                padding: 40px 20px; /* Mobilde yan boşlukları azaltarak metne alan açar */
+            }
+            .email-link {
+                font-size: 13px; /* Mobilde fontu hafif küçültür */
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -42,7 +75,7 @@
         <!-- İLETİŞİM İÇERİK KUTUSU -->
         <main class="ana-icerik">
 
-            <div class="kutu" style="text-align: center; padding: 50px 40px;">
+            <div class="kutu iletisim-kutusu">
                 <h1 class="baslik-mor" style="margin-bottom: 25px;">CONTACT</h1>
                 
                 <p style="font-size: 14px; line-height: 1.8; color: var(--metin-ana); margin-bottom: 25px;">
@@ -55,7 +88,7 @@
 
                 <!-- E-posta Adresi (Altın Sarısı & Şeffaf Arkaplan) -->
                 <div style="margin-top: 20px;">
-                    <a href="mailto:projectvioletgamemail@gmail.com" style="display: inline-block; font-family: var(--font-oyun); font-size: 14px; color: var(--renk-11-sari); text-decoration: none; transition: color 0.2s ease;" onmouseover="this.style.color='var(--renk-18-beyaz)';" onmouseout="this.style.color='var(--renk-11-sari)';">
+                    <a href="mailto:projectvioletgamemail@gmail.com" class="email-link">
                         <i class="fas fa-envelope" style="margin-right: 10px;"></i>projectvioletgamemail@gmail.com
                     </a>
                 </div>
