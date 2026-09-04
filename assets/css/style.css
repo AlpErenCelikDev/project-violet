@@ -39,7 +39,7 @@
     /* ----------------------------------------------------------
        3. METİN & EFEKT VARSAYILANLARI
        ---------------------------------------------------------- */
-    --metin-ana: var(--renk-19-gri-acik);
+    --metin-ana: var(--renk-4-gri-acik);
     --metin-ikincil: var(--renk-20-gri-koyu);
     --golge-parlama: rgba(168, 85, 247, 0.6);
     --cerceve-cizgi: rgba(168, 85, 247, 0.25);
