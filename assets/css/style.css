@@ -92,7 +92,6 @@
     font-style: normal;
 }
 
-/* Yasal metin için Fira Sans eklendi */
 @font-face {
     font-family: 'FiraSans';
     src: url('../fonts/FiraSans-Regular.ttf') format('truetype');
@@ -112,6 +111,9 @@ body {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+    /* Footer için alt tarafa esneme payı */
+    min-height: 100vh;
+    overflow-x: hidden;
 }
 
 /* ==========================================================
@@ -258,7 +260,7 @@ body {
 }
 
 /* ==========================================================
-   8. İÇERİK KUTULARI (9-SLICE PİKSEL ÇERÇEVE) VE TİPOGRAFİ
+   8. İÇERİK KUTULARI (BÜYÜTÜLMÜŞ PİKSEL ÇERÇEVELER)
    ========================================================== */
 .ana-icerik {
     margin-top: calc(-18.44% + 28px);
@@ -267,14 +269,11 @@ body {
 
 .kutu {
     position: relative;
-    /* 16px çerçeve + yazının nefes alması için iç boşluk */
-    padding: 32px; 
+    /* PC için 32px çerçeve alanına göre iç boşluk artırıldı */
+    padding: 48px; 
     margin-bottom: 30px;
-    
-    /* Yumuşak/Pastel ve temaya uyumlu iç dolgu rengi */
     background-color: rgba(45, 35, 60, 0.95); 
 
-    /* 8 Parça Çerçeve Görselleri */
     background-image: 
         url('../images/frame_image/corner_upperleft.png'),
         url('../images/frame_image/corner_upperright.png'),
@@ -285,44 +284,33 @@ body {
         url('../images/frame_image/left.png'),
         url('../images/frame_image/right.png');
         
-    /* Parçaların Konumları */
+    /* Parçaların Konumları (PC'de 32px ölçekte) */
     background-position: 
-        0 0,           /* Sol Üst */
-        100% 0,        /* Sağ Üst */
-        0 100%,        /* Sol Alt */
-        100% 100%,     /* Sağ Alt */
-        16px 0,        /* Üst Kenar */
-        16px 100%,     /* Alt Kenar */
-        0 16px,        /* Sol Kenar */
-        100% 16px;     /* Sağ Kenar */
+        0 0,           
+        100% 0,        
+        0 100%,        
+        100% 100%,     
+        32px 0,        
+        32px 100%,     
+        0 32px,        
+        100% 32px;     
         
-    /* Parçaların Boyutları (Hepsi kendi 16x16 boyutuna sabitlendi) */
+    /* Parçaların Boyutları (Tüm desenler 32x32 olarak netleştirildi ve büyütüldü) */
     background-size: 
-        16px 16px,
-        16px 16px,
-        16px 16px,
-        16px 16px,
-        16px 16px, /* Üst Kenar */
-        16px 16px, /* Alt Kenar */
-        16px 16px, /* Sol Kenar */
-        16px 16px; /* Sağ Kenar */
+        32px 32px, 32px 32px, 32px 32px, 32px 32px,
+        32px 32px, 32px 32px, 32px 32px, 32px 32px;
         
-    /* Parçaların Tekrarlanma Kuralları (Kenarlar yan yana/alt alta dizilir) */
     background-repeat: 
-        no-repeat,
-        no-repeat,
-        no-repeat,
-        no-repeat,
-        repeat-x, /* Üst kenar yatay çoğalır */
-        repeat-x, /* Alt kenar yatay çoğalır */
-        repeat-y, /* Sol kenar dikey çoğalır */
-        repeat-y; /* Sağ kenar dikey çoğalır */
+        no-repeat, no-repeat, no-repeat, no-repeat,
+        repeat-x, /* Üst kenar */
+        repeat-x, /* Alt kenar */
+        repeat-y, /* Sol kenar */
+        repeat-y; /* Sağ kenar */
 
-    /* Piksellerin bulanıklaşmasını engeller, keskin piksel sanatını korur */
+    /* Pikselleri 2 katına çıkarırken bulanıklaşmayı engeller */
     image-rendering: pixelated;
     image-rendering: crisp-edges;
 
-    /* Arka plan bulanıklığı ve gölge (Retro atmosfere derinlik katar) */
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
@@ -345,57 +333,14 @@ h2 { font-size: 16px; }
     margin-bottom: 15px;
 }
 
-ul {
-    padding-left: 20px;
-}
+ul { padding-left: 20px; }
+li { margin-bottom: 12px; }
 
-li {
-    margin-bottom: 12px;
-}
-
-.kutu strong, .kutu b {
-    color: var(--renk-4-buz-mavi);
-}
-
-.blog-yazisi p { 
-    color: var(--renk-19-gri-acik); 
-    line-height: 1.65; 
-}
-
-.soru-cevap {
-    border-bottom: 1px solid rgba(226,232,240,0.12);
-    padding: 4px 0;
-}
-.soru-cevap:last-of-type { border-bottom: none; }
-.soru-cevap summary {
-    cursor: pointer;
-    list-style: none;
-    font-size: 17px;
-    font-weight: 600;
-    color: #f1f5f9;
-    padding: 14px 34px 14px 0;
-    position: relative;
-}
-.soru-cevap summary::-webkit-details-marker { display: none; }
-.soru-cevap summary::after {
-    content: "+";
-    position: absolute;
-    right: 4px;
-    top: 10px;
-    font-size: 22px;
-    color: var(--renk-1-mor-ana);
-    transition: transform .2s ease;
-}
-.soru-cevap[open] summary::after { transform: rotate(45deg); }
-.soru-cevap p {
-    color: #cbd5e1;
-    line-height: 1.65;
-    margin: 0;
-    padding: 0 0 16px;
-}
+.kutu strong, .kutu b { color: var(--renk-4-buz-mavi); }
+.blog-yazisi p { color: var(--renk-19-gri-acik); line-height: 1.65; }
 
 /* ==========================================================
-   9. MEDYA ELEMANLARI (GÖRSEL VE VİDEO)
+   9. MEDYA ELEMANLARI
    ========================================================== */
 .yama-resmi {
     width: 100%;
@@ -408,38 +353,13 @@ li {
     display: block;
 }
 
-.video-kapsayici {
-    position: relative;
-    width: 100%;
-    padding-bottom: 56.25%;
-    height: 0;
-    margin: 20px 0;
-    border-radius: 8px;
-    overflow: hidden;
-    border: 1px solid var(--cerceve-cizgi);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-}
-
-.video-kapsayici iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
 /* ==========================================================
-   10. SİHİR TOZU EFEKTİ (ANİMASYON)
+   10. SİHİR TOZU EFEKTİ
    ========================================================== */
 .sihir-kutusu {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    pointer-events: none;
-    z-index: 9999;
-    overflow: hidden;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    pointer-events: none; z-index: 9999; overflow: hidden;
 }
 
 .sihir-tozu {
@@ -452,36 +372,43 @@ li {
 }
 
 @keyframes sihir-yagisi {
-    0% {
-        transform: translateY(0) scale(0.8);
-        opacity: 0;
-    }
+    0% { transform: translateY(0) scale(0.8); opacity: 0; }
     10% { opacity: 1; }
     80% { opacity: 0.8; }
-    100% {
-        transform: translateY(110vh) scale(1.2);
-        opacity: 0;
-    }
+    100% { transform: translateY(110vh) scale(1.2); opacity: 0; }
 }
 
 /* ==========================================================
-   11. ALT BİLGİ (FOOTER & YASAL METİN)
+   11. ALT BİLGİ (YENİ TAM EKRAN PASTEL FOOTER)
    ========================================================== */
 .site-footer {
-    max-width: 850px;
-    margin: 0 auto 40px auto;
-    padding: 25px 35px;
-    background: var(--kutu-arkaplan);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-radius: 12px;
-    border: 1px solid var(--cerceve-cizgi);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    /* Sihirli CSS hack'i: Kutunun dışına taşıp tüm ekranı boydan boya kaplar */
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    
+    /* İstenilen mat, pastel arka plan (Görseline uyumlu koyu ton) */
+    background-color: #1e1526; 
+    
+    /* İçeriğin yine sayfa ortasında (850px) kalmasını sağlayan matematik */
+    padding: 40px max(20px, calc(50vw - 425px));
+    
+    /* Eski kutu özelliklerini siliyoruz */
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    
+    /* İçerik düzeni */
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 30px;
+    
+    margin-top: 80px;
+    margin-bottom: 0;
     font-family: 'FiraSans', sans-serif;
 }
 
@@ -493,32 +420,33 @@ li {
 }
 
 .yasal-metin {
-    font-size: 12px;
-    line-height: 1.5;
+    font-size: 13px;
+    line-height: 1.6;
     color: var(--renk-20-gri-koyu);
     margin: 0;
 }
 
 .telif {
-    font-size: 13px;
+    font-size: 14px;
     color: var(--renk-2-mor-acik);
+    font-weight: bold;
 }
 
 .footer-sag {
     display: flex;
-    gap: 18px;
+    gap: 20px;
     align-items: center;
 }
 
 .footer-sag a {
-    color: var(--renk-4-buz-mavi);
-    font-size: 20px;
+    color: var(--renk-20-gri-koyu);
+    font-size: 24px;
     text-decoration: none;
     transition: transform 0.2s ease, color 0.2s ease;
 }
 
 .footer-sag a:hover {
-    color: var(--renk-18-beyaz);
+    color: var(--renk-4-buz-mavi);
     transform: scale(1.15);
 }
 
@@ -540,87 +468,53 @@ li {
     
     .logo-merkez-alani {
         aspect-ratio: auto; 
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
+        display: flex; flex-direction: column; align-items: center; gap: 15px;
     }
 
     .ana-logo {
-        position: relative;
-        top: auto;
-        left: auto;
-        transform: none;
-        width: 100%;
-        max-width: 280px; 
+        position: relative; top: auto; left: auto; transform: none; width: 100%; max-width: 280px; 
     }
+    .ana-logo:hover { transform: scale(1.02); }
 
-    /* Mobilde logoya tıklayınca kaymasını engeller */
-    .ana-logo:hover {
-        transform: scale(1.02);
-    }
-
-    .sayfa-menu {
-        gap: 10px; 
-        margin: 0;
-    }
-
-    .sayfa-menu a {
-        font-size: 11px; 
-        padding: 4px;
-    }
+    .sayfa-menu { gap: 10px; margin: 0; }
+    .sayfa-menu a { font-size: 11px; padding: 4px; }
 
     .dil-cerceve-kutusu { 
-        position: relative;
-        right: 0;
-        transform: none;
-        width: auto; 
-        height: auto; 
+        position: relative; right: 0; transform: none; width: auto; height: auto; 
     }
-
-    .dil-arkaplan-cerceve { 
-        display: none; 
-    }
-
+    .dil-arkaplan-cerceve { display: none; }
     .dil-butonlari {
         position: relative;
         background: rgba(15, 15, 20, 0.85); 
-        backdrop-filter: blur(5px);
-        -webkit-backdrop-filter: blur(5px);
+        backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px);
         border: 1px solid rgba(168, 85, 247, 0.4); 
-        border-radius: 8px;
-        padding: 6px 12px;
-        gap: 15px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+        border-radius: 8px; padding: 6px 12px; gap: 15px;
     }
+    .dil-btn { font-size: 11px; }
+    .sayfa-govde { margin-top: 20px; }
+    .ana-icerik { margin-top: 20px; }
 
-    .dil-btn { 
-        font-size: 11px; 
-    }
-
-    .sayfa-govde { 
-        margin-top: 20px; 
-    }
-
-    .ana-icerik { 
-        margin-top: 20px; 
-    }
-
+    /* MOBİLDE ÇERÇEVELERİ ESKİ (16PX) BOYUTUNA DÖNDÜRÜYORUZ */
     .kutu { 
-        /* Mobilde de çerçevenin yazıların üstüne binmemesi için */
-        padding: 24px; 
+        padding: 32px; 
         margin-bottom: 20px; 
+        background-position: 
+            0 0, 100% 0, 0 100%, 100% 100%,
+            16px 0, 16px 100%, 0 16px, 100% 16px;
+        background-size: 
+            16px 16px, 16px 16px, 16px 16px, 16px 16px,
+            16px 16px, 16px 16px, 16px 16px, 16px 16px;
     }
 
     h1 { font-size: 14px; line-height: 1.5; }
     h2 { font-size: 12px; line-height: 1.5; }
 
-    /* Footer mobil uyumu */
+    /* Mobil Footer Uyumu */
     .site-footer {
         flex-direction: column;
         text-align: center;
         align-items: center;
-        padding: 20px;
+        padding: 40px 20px; /* Mobilde hesaplamayı kapatıp normal dolgu yapıyoruz */
     }
     .footer-sol {
         align-items: center;
