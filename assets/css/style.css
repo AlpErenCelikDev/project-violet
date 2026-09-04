@@ -39,7 +39,7 @@
     /* ----------------------------------------------------------
        3. METİN & EFEKT VARSAYILANLARI
        ---------------------------------------------------------- */
-    --metin-ana: var(--renk-4-buz-mavi);
+    --metin-ana: var(--renk-19-gri-acik);
     --metin-ikincil: var(--renk-20-gri-koyu);
     --golge-parlama: rgba(168, 85, 247, 0.6);
     --cerceve-cizgi: rgba(168, 85, 247, 0.25);
@@ -139,10 +139,11 @@ body {
     justify-content: center;
     gap: 32px;
     flex-wrap: wrap;
-    margin: 6px 0 28px; /* HTML'den alındı */
+    margin: 6px 0 28px;
     z-index: 10;
 }
 
+/* Normal sekmelerin rengi */
 .sayfa-menu a {
     color: var(--renk-19-gri-acik);
     text-decoration: none;
@@ -153,10 +154,11 @@ body {
     font-weight: bold;
 }
 
+/* SEÇİLİ VEYA ÜZERİNE GELİNEN SEKMENİN RENGİ (Buz Mavisi Yapıldı) */
 .sayfa-menu a:hover,
 .sayfa-menu a.aktif {
-    color: var(--renk-1-mor-ana);
-    border-bottom-color: var(--renk-1-mor-ana);
+    color: var(--renk-4-buz-mavi);
+    border-bottom-color: var(--renk-4-buz-mavi);
 }
 
 /* Sağ üst dil çerçevesi */
@@ -296,12 +298,10 @@ li {
     margin-bottom: 12px;
 }
 
-/* Sadece .kutu içindeki kalın metinler için özel ayar (HTML'den taşındı) */
 .kutu strong, .kutu b {
     color: var(--renk-4-buz-mavi);
 }
 
-/* Blog ve SSS Özel Sınıfları */
 .blog-yazisi p { 
     color: var(--renk-19-gri-acik); 
     line-height: 1.65; 
@@ -410,12 +410,11 @@ li {
 }
 
 /* ==========================================================
-   11. MOBİL UYUM (RESPONSIVE DESIGN) - GÜNCELLENDİ
+   11. MOBİL UYUM (RESPONSIVE DESIGN)
    ========================================================== */
 @media screen and (max-width: 768px) {
     
     body {
-        /* iOS arkaplan piksellenme/esneme hatasını çözer */
         background-attachment: scroll;
         background-position: top center;
     }
@@ -427,7 +426,6 @@ li {
     }
     
     .logo-merkez-alani {
-        /* Sabit oran iptal, dikey esnek dizilim */
         aspect-ratio: auto; 
         display: flex;
         flex-direction: column;
@@ -436,7 +434,6 @@ li {
     }
 
     .ana-logo {
-        /* Logoyu mobilde serbest bırak ve üst üste binmesini engelle */
         position: relative;
         top: auto;
         left: auto;
@@ -488,7 +485,6 @@ li {
     }
 
     .ana-icerik { 
-        /* Eksi margin değerini iptal et */
         margin-top: 20px; 
     }
 
