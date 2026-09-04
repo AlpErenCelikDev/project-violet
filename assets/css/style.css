@@ -92,7 +92,6 @@ body {
     line-height: 1.8;
     color: var(--metin-ana);
     
-    /* BURASI EKLENDİ: Arka plan resmini tüm sayfaya sabitler */
     background-color: var(--sayfa-arkaplan-rengi);
     background-image: url('../images/arkaplan.png');
     background-size: cover;
@@ -101,22 +100,64 @@ body {
 }
 
 /* ==========================================================
-   6. ÜST BAR VE DİL SEÇENEĞİ (HEADER)
+   6. ÜST BAR, SEKMELER VE DİL SEÇENEĞİ (HEADER)
    ========================================================== */
 .ust-menu {
+    position: relative;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
-    padding: 20px 40px;
-    position: absolute;
-    top: 0;
-    right: 0;
+    min-height: 70px;
+    padding: 10px 20px;
     width: 100%;
     z-index: 100;
 }
 
+/* Üst bar arkaplan görseli */
+.ust-bar-arkaplan {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 1000px;
+    height: 100%;
+    z-index: -1;
+    object-fit: cover;
+}
+
+/* Sayfa menüsü sekmeleri (Ana Sayfa, SSS, Blog) */
+.sayfa-menu {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+    margin: 0;
+    z-index: 10;
+}
+
+.sayfa-menu a {
+    color: var(--renk-19-gri-acik);
+    text-decoration: none;
+    font-size: 15px;
+    padding: 6px 2px;
+    border-bottom: 2px solid transparent;
+    transition: color .2s ease, border-color .2s ease;
+    font-weight: bold;
+}
+
+.sayfa-menu a:hover,
+.sayfa-menu a.aktif {
+    color: var(--renk-1-mor-ana);
+    border-bottom-color: var(--renk-1-mor-ana);
+}
+
+/* Sağ üst dil çerçevesi */
 .dil-cerceve-kutusu {
-    position: relative;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
     display: inline-block;
     width: 150px;  
     height: 130px; 
@@ -181,12 +222,8 @@ body {
     position: relative;
     text-align: center;
     aspect-ratio: 2560 / 1440;
-    /* DİKKAT: Buradaki .ana-arkaplan-resim kaldırıldığı için 
-       artık arkadaki çift resmi engellemiş olduk. */
 }
 
-/* ESKİ .ana-arkaplan-resim sınıfını tamamen silebilirsin ya da 
-   aşağıdaki gibi boş bırakabilirsin ki başka yerde hata vermesin */
 .ana-arkaplan-resim {
     display: none; 
 }
@@ -252,9 +289,46 @@ li {
     margin-bottom: 12px;
 }
 
-/* Liste içindeki güçlü/vurgulu kelimelerin otomatik varsayılan rengi */
 li strong {
     color: var(--renk-4-buz-mavi);
+}
+
+/* Blog ve SSS Özel Sınıfları */
+.blog-yazisi p { 
+    color: var(--renk-19-gri-acik); 
+    line-height: 1.65; 
+}
+
+.soru-cevap {
+    border-bottom: 1px solid rgba(226,232,240,0.12);
+    padding: 4px 0;
+}
+.soru-cevap:last-of-type { border-bottom: none; }
+.soru-cevap summary {
+    cursor: pointer;
+    list-style: none;
+    font-size: 17px;
+    font-weight: 600;
+    color: #f1f5f9;
+    padding: 14px 34px 14px 0;
+    position: relative;
+}
+.soru-cevap summary::-webkit-details-marker { display: none; }
+.soru-cevap summary::after {
+    content: "+";
+    position: absolute;
+    right: 4px;
+    top: 10px;
+    font-size: 22px;
+    color: var(--renk-1-mor-ana);
+    transition: transform .2s ease;
+}
+.soru-cevap[open] summary::after { transform: rotate(45deg); }
+.soru-cevap p {
+    color: #cbd5e1;
+    line-height: 1.65;
+    margin: 0;
+    padding: 0 0 16px;
 }
 
 /* ==========================================================
@@ -333,9 +407,18 @@ li strong {
 @media screen and (max-width: 768px) {
     .ust-menu { 
         padding: 15px 20px; 
+        flex-direction: column; /* Mobilde sekmeler ve dil butonları üst üste binsin */
+        gap: 15px;
+    }
+    
+    .sayfa-menu {
+        gap: 15px;
     }
 
     .dil-cerceve-kutusu { 
+        position: relative; /* Sağ üstten ortaya almak için */
+        right: 0;
+        transform: none;
         width: auto; 
         height: auto; 
     }
@@ -361,7 +444,7 @@ li strong {
     }
 
     .sayfa-govde { 
-        margin-top: 70px; 
+        margin-top: 20px; 
     }
 
     .ana-logo { 
