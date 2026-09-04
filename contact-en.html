@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Project Violet</title>
+    
+    <!-- Sitenin Ortak CSS Dosyası -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <!-- FontAwesome İkon Kütüphanesi -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon.png">
+</head>
+<body>
+
+    <!-- ÜST BAR VE DİL SEÇİMİ -->
+    <header class="ust-menu">
+        <div class="dil-cerceve-kutusu">
+            <img src="assets/images/language_frame.png" alt="Frame" class="dil-arkaplan-cerceve">
+            <div class="dil-butonlari">
+                <a href="contact-tr.html" class="dil-btn">TR</a>
+                <a href="contact-en.html" class="dil-btn dil-aktif">EN</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="sayfa-govde">
+
+        <!-- LOGO VE SAYFA MENÜSÜ -->
+        <div class="logo-merkez-alani">
+            <nav class="sayfa-menu">
+                <a href="en.html">Home</a>
+                <a href="blog-en.html">Dev Blog</a>
+                <a href="faq-en.html">FAQ</a>
+            </nav>
+            <img src="assets/images/logo.png" alt="Project Violet Logo" class="ana-logo">
+        </div>
+
+        <!-- İLETİŞİM İÇERİK KUTUSU -->
+        <main class="ana-icerik">
+
+            <div class="kutu" style="text-align: center; padding: 50px 40px;">
+                <h1 class="baslik-mor" style="margin-bottom: 25px;">CONTACT</h1>
+                
+                <p style="font-size: 14px; line-height: 1.8; color: var(--metin-ana); margin-bottom: 25px;">
+                    For any questions, suggestions, feedback, or collaboration requests regarding Project Violet, you can reach out to us directly via email.
+                </p>
+
+                <p style="font-size: 13px; color: var(--renk-20-gri-koyu); margin-bottom: 40px;">
+                    Your thoughts are very valuable to us, we will try to get back to you as soon as possible!
+                </p>
+
+                <!-- E-posta Adresi (Altın Sarısı & Şeffaf Arkaplan) -->
+                <div style="margin-top: 20px;">
+                    <a href="mailto:projectvioletgamemail@gmail.com" style="display: inline-block; font-family: var(--font-oyun); font-size: 14px; color: var(--renk-11-sari); text-decoration: none; transition: color 0.2s ease;" onmouseover="this.style.color='var(--renk-18-beyaz)';" onmouseout="this.style.color='var(--renk-11-sari)';">
+                        <i class="fas fa-envelope" style="margin-right: 10px;"></i>projectvioletgamemail@gmail.com
+                    </a>
+                </div>
+            </div>
+
+        </main>
+        
+        <!-- TAM EKRAN PASTEL ALT BİLGİ (FOOTER) ALANI -->
+        <footer class="site-footer">
+            <div class="footer-sol">
+                <p class="yasal-metin">
+                    Project Violet is an independent, individual, and entirely experimental endeavor developed under a 'working title'. None of the content on this site is intended for commercial purposes, nor does it represent any official corporation or brand.
+                </p>
+                <span class="telif">© 2026 Project Violet. All rights reserved.</span>
+            </div>
+            <div class="footer-sag">
+                <a href="https://www.reddit.com" target="_blank" rel="noopener noreferrer" title="Reddit">
+                    <i class="fab fa-reddit-alien"></i>
+                </a>
+                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" title="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="contact-en.html" title="Contact">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- SİHİR TOZU EFEKTİ -->
+    <div class="sihir-kutusu" id="sihirKutusu"></div>
+    <script>
+        function sihirYarat() {
+            const kutu = document.getElementById('sihirKutusu');
+            if (!kutu) return;
+            const sihir = document.createElement('div');
+            sihir.classList.add('sihir-tozu');
+            const boyut = Math.random() * 2 + 2;
+            sihir.style.width = boyut + 'px';
+            sihir.style.height = boyut + 'px';
+            sihir.style.left = Math.random() * 100 + 'vw';
+            sihir.style.animationDuration = Math.random() * 8 + 6 + 's';
+            kutu.appendChild(sihir);
+            setTimeout(() => { sihir.remove(); }, 14000); 
+        }
+        setInterval(sihirYarat, 400);
+    </script>
+</body>
+</html>
