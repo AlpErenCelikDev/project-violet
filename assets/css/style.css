@@ -296,18 +296,18 @@ body {
         0 16px,        /* Sol Kenar */
         100% 16px;     /* Sağ Kenar */
         
-    /* Parçaların Boyutları (Köşeler 16x16, kenarlar boşlukları dolduracak kadar esner) */
+    /* Parçaların Boyutları (Hepsi kendi 16x16 boyutuna sabitlendi) */
     background-size: 
         16px 16px,
         16px 16px,
         16px 16px,
         16px 16px,
-        calc(100% - 32px) 16px,
-        calc(100% - 32px) 16px,
-        16px calc(100% - 32px),
-        16px calc(100% - 32px);
+        16px 16px, /* Üst Kenar */
+        16px 16px, /* Alt Kenar */
+        16px 16px, /* Sol Kenar */
+        16px 16px; /* Sağ Kenar */
         
-    /* Parçaların Tekrarlanma Kuralları */
+    /* Parçaların Tekrarlanma Kuralları (Kenarlar yan yana/alt alta dizilir) */
     background-repeat: 
         no-repeat,
         no-repeat,
