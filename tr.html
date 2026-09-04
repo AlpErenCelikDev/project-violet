@@ -6,43 +6,28 @@
     <title>Project Violet</title>
     <link rel="stylesheet" href="assets/css/style.css">
 
-    <!-- FAVICON (SEKME İKONU) -->
     <link rel="icon" type="image/png" href="assets/images/favicon.png">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon.png">
 
-    <!-- Başlık Renk Sınıfları -->
     <style>
         .baslik-mor { color: #a855f7; }
         .baslik-yesil { color: #22c55e; }
         .baslik-mavi { color: #38bdf8; }
         .baslik-turuncu { color: #fb923c; }
         .baslik-pembe { color: #f472b6; }
-        .sayfa-menu {
-  display: flex;
-  justify-content: center;
-  gap: 32px;
-  flex-wrap: wrap;
-  margin: 6px 0 28px;
-}
-.sayfa-menu a {
-  color: #e2e8f0;
-  text-decoration: none;
-  font-size: 15px;
-  padding: 6px 2px;
-  border-bottom: 2px solid transparent;
-  transition: color .2s ease, border-color .2s ease;
-}
-.sayfa-menu a:hover,
-.sayfa-menu a.aktif {
-  color: #a855f7;
-  border-bottom-color: #a855f7;
-}
     </style>
 </head>
 <body>
 
-    <!-- SAĞ ÜST DİL SEÇENEĞİ -->
     <header class="ust-menu">
+        <img src="assets/ust-bar.png" alt="Top Bar" class="ust-bar-arkaplan">
+        
+        <nav class="sayfa-menu">
+            <a href="tr.html" class="aktif">Ana Sayfa</a>
+            <a href="faq-tr.html">SSS</a>
+            <a href="blog-tr.html">Geliştirici Blogu</a>
+        </nav>
+
         <div class="dil-cerceve-kutusu">
             <img src="assets/images/language_frame.png" alt="Frame" class="dil-arkaplan-cerceve">
             <div class="dil-butonlari">
@@ -52,23 +37,14 @@
         </div>
     </header>
 
-    <!-- TEK GENİŞLİK REFERANSI -->
     <div class="sayfa-govde">
 
-        <!-- ORTADAKİ BÜYÜK GÖRSEL VE LOGO ALANI -->
         <div class="logo-merkez-alani">
-            
             <img src="assets/images/logo.png" alt="Project Violet Logo" class="ana-logo">
         </div>
-                <nav class="sayfa-menu">
-        <a href="tr.html" class="aktif">Ana Sayfa</a>
-        <a href="faq-tr.html">SSS</a>
-        <a href="blog-tr.html">Geliştirici Blogu</a>
-        </nav>
-        <!-- ANA İÇERİK (KUTULAR) -->
+
         <main class="ana-icerik">
 
-            <!-- HOŞGELDİN KUTUSU -->
             <div class="kutu">
                 <h1 class="baslik-mor">Project Violet'e Hoş Geldiniz</h1>
                 <p>Önümüzde keşfedilmeyi bekleyen devasa bir dünya, yazılmayı bekleyen hikâyeler ve gün yüzüne çıkmayı bekleyen sayısız fikir var. Bugün gördüğünüz şey, yalnızca başlangıç.</p>
@@ -76,7 +52,6 @@
                 <p>ProjectViolet isminin arkasındaki gizem şimdilik saklı kalacak. Karanlık ve büyünün iç içe geçtiği bu epik sürecin her aşamasını paylaşmak ve bunu sıfırdan birlikte inşa etmek en büyük heyecanım. Desteğiniz için teşekkürler &lt;3</p>
             </div>
 
-            <!-- V0.5 YAMASI -->
             <div class="kutu" style="color: #e2e8f0;">
                 <h2 style="color: #00ff04;">V0.5 Yaması Hazır!</h2>
                 <span class="tarih">04 Eylül 2026</span>
@@ -88,7 +63,6 @@
                 </style>
             </div>
 
-            <!-- V4.0 BOX -->
             <div class="kutu">
                 <h2 class="baslik-yesil">V4.0: SİTE KULLANIMA HAZIR!</h2>
                 <span class="tarih">3 Eylül 2026</span>
@@ -98,13 +72,11 @@
                 <p>Sihir parçacıkları aktif!</p>
             </div>
 
-            <!-- Hamster BOX -->
             <div class="kutu" style="color: #e2e8f0;">
                 <h2 style="color: #c20000;">☆<(￣︶￣)></h2>
                 <img src="assets/images/gif2.gif" alt="☆<(￣︶￣)>" class="yama-resmi">
             </div>
             
-            <!-- V0.3 BOX -->
             <div class="kutu">
                 <h2 class="baslik-mavi">V0.3: Görsel Düzeltmeler</h2>
                 <span class="tarih">3 Eylül 2026</span>
@@ -117,7 +89,6 @@
                 </ul>
             </div>
             
-            <!-- V0.2 BOX -->
             <div class="kutu">
                 <h2 class="baslik-turuncu">V0.2:</h2>
                 <span class="tarih">3 Eylül 2026</span>
@@ -129,13 +100,11 @@
                 </ul>
             </div>
 
-            <!-- Kalp BOX -->
             <div class="kutu" style="color: #e2e8f0;">
                 <h2 style="color: #c20000;"></h2>
                 <img src="assets/images/gif1.gif" alt="" class="yama-resmi">
             </div>
             
-            <!-- V0.1 BOX -->
             <div class="kutu">
                 <h2 class="baslik-pembe">V0.1: Açılış</h2>
                 <span class="tarih">3 Eylül 2026</span>
@@ -149,7 +118,6 @@
         </main>
     </div>
 
-    <!-- Sihir Efekti ve Script -->
     <div class="sihir-kutusu" id="sihirKutusu"></div>
     <script>
         function sihirYarat() {
