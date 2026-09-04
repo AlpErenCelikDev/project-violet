@@ -521,3 +521,107 @@ li { margin-bottom: 12px; }
         max-width: 100%;
     }
 }
+
+/* ==========================================================
+   13. SSS (FAQ) SAYFASI STİLLERİ
+   Not: Bu blok daha önce faq-tr.html / faq-en.html içindeki
+   <style> etiketinde ayrı ayrı tanımlıydı. O dosyalardan
+   BAĞIMSIZ olarak, eski/hurda bir kopyası da (font-family
+   tanımı eksik haliyle) yanlışlıkla blog-tr.html'e karışmıştı.
+   "SSS -> Geliştirici Blogu" geçişinde tarayıcı o eski, hatalı
+   kopyayı gösterdiği için cevap metinleri font-family
+   tanımsız kalıp sitenin varsayılan pikselli OyunFontu'na
+   düşüyordu. Artık tek doğru kaynak burası; faq-tr.html ve
+   faq-en.html içindeki satır içi <style> blokları kaldırıldı.
+   ========================================================== */
+.faq-kapsayici {
+    padding: 48px;
+    text-align: left;
+}
+
+.faq-satir {
+    background: transparent;
+    border: none;
+    border-bottom: 1px dashed var(--cerceve-cizgi);
+    box-shadow: none;
+    margin: 0;
+    padding: 20px 0;
+    border-radius: 0;
+}
+
+.faq-satir:last-child {
+    border-bottom: none;
+}
+
+.faq-satir summary {
+    list-style: none;
+    font-family: var(--font-oyun);
+    font-size: 14px;
+    font-weight: bold;
+    position: relative;
+    padding-right: 40px;
+    cursor: pointer;
+    outline: none;
+    color: var(--renk-18-beyaz);
+    transition: color 0.2s ease;
+    margin: 0;
+    background: transparent;
+}
+
+.faq-satir summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq-satir summary::marker {
+    content: '';
+    display: none;
+}
+
+.faq-satir summary:hover,
+.faq-satir[open] summary {
+    color: var(--renk-4-buz-mavi);
+}
+
+.faq-satir summary::after {
+    content: '\f067';
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    color: var(--renk-1-mor-ana);
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.faq-satir[open] summary::after {
+    transform: translateY(-50%) rotate(45deg);
+    color: var(--renk-4-buz-mavi);
+}
+
+.faq-cevap {
+    margin-top: 15px;
+    font-family: 'FiraSans', sans-serif;
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--renk-19-gri-acik);
+    padding-right: 20px;
+}
+
+.faq-cevap p {
+    margin-bottom: 10px;
+}
+
+.faq-cevap p:last-child {
+    margin-bottom: 0;
+}
+
+@media screen and (max-width: 768px) {
+    .faq-kapsayici {
+        padding: 32px;
+    }
+    .faq-satir summary {
+        font-size: 12px;
+    }
+}
