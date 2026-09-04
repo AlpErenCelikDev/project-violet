@@ -15,19 +15,33 @@
         .baslik-mavi { color: #38bdf8; }
         .baslik-turuncu { color: #fb923c; }
         .baslik-pembe { color: #f472b6; }
+        
+        .sayfa-menu {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            flex-wrap: wrap;
+            margin: 6px 0 28px;
+        }
+        .sayfa-menu a {
+            color: #e2e8f0;
+            text-decoration: none;
+            font-size: 15px;
+            padding: 6px 2px;
+            border-bottom: 2px solid transparent;
+            transition: color .2s ease, border-color .2s ease;
+        }
+        .sayfa-menu a:hover,
+        .sayfa-menu a.aktif {
+            color: #a855f7;
+            border-bottom-color: #a855f7;
+        }
     </style>
 </head>
 <body>
 
     <header class="ust-menu">
-        <img src="assets/ust-bar.png" alt="Top Bar" class="ust-bar-arkaplan">
-        
-        <nav class="sayfa-menu">
-            <a href="tr.html" class="aktif">Ana Sayfa</a>
-            <a href="faq-tr.html">SSS</a>
-            <a href="blog-tr.html">Geliştirici Blogu</a>
-        </nav>
-
+        <img src="assets/images/ust-bar.png" alt="Top Bar" class="ust-bar-arkaplan">
         <div class="dil-cerceve-kutusu">
             <img src="assets/images/language_frame.png" alt="Frame" class="dil-arkaplan-cerceve">
             <div class="dil-butonlari">
@@ -40,6 +54,11 @@
     <div class="sayfa-govde">
 
         <div class="logo-merkez-alani">
+            <nav class="sayfa-menu">
+                <a href="tr.html" class="aktif">Ana Sayfa</a>
+                <a href="faq-tr.html">SSS</a>
+                <a href="blog-tr.html">Geliştirici Blogu</a>
+            </nav>
             <img src="assets/images/logo.png" alt="Project Violet Logo" class="ana-logo">
         </div>
 
@@ -75,6 +94,9 @@
             <div class="kutu" style="color: #e2e8f0;">
                 <h2 style="color: #c20000;">☆<(￣︶￣)></h2>
                 <img src="assets/images/gif2.gif" alt="☆<(￣︶￣)>" class="yama-resmi">
+                <style>
+                    .kutu strong, .kutu b { color: #7dd3fc; }
+                </style>
             </div>
             
             <div class="kutu">
@@ -103,6 +125,9 @@
             <div class="kutu" style="color: #e2e8f0;">
                 <h2 style="color: #c20000;"></h2>
                 <img src="assets/images/gif1.gif" alt="" class="yama-resmi">
+                <style>
+                    .kutu strong, .kutu b { color: #7dd3fc; }
+                </style>
             </div>
             
             <div class="kutu">
