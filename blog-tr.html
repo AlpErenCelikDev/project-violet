@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Violet - Geliştirici Blogu</title>
+    <title>Project Violet - Sıkça Sorulan Sorular</title>
 
     <!-- Sitenin Ortak CSS Dosyası -->
     <link rel="stylesheet" href="assets/css/style.css">
@@ -11,72 +11,199 @@
     <!-- FontAwesome İkon Kütüphanesi -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- FAVICON (SEKME İKONU) -->
     <link rel="icon" type="image/png" href="assets/images/favicon.png">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon.png">
+
+    <!-- SSS (FAQ) Sayfasına Özel Zarif Tasarım Kodları -->
+    <style>
+        /* Tüm soruları içine alan tek ana kutunun içi */
+        .faq-kapsayici {
+            padding: 10px 30px; 
+            text-align: left;
+        }
+
+        /* Her bir sorunun satır tasarımı (İnce çizgiler) */
+        .faq-satir {
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.15); /* Araya ince zarif çizgi */
+            padding: 18px 0; /* Satırlar arası ferah boşluk */
+        }
+
+        /* Son sorunun altına çizgi koymamak için */
+        .faq-satir:last-child {
+            border-bottom: none;
+        }
+
+        /* Soru Başlıkları */
+        .faq-satir summary {
+            list-style: none; /* Standart oku gizler */
+            font-family: var(--font-oyun, sans-serif);
+            font-size: 16px;
+            font-weight: bold;
+            position: relative;
+            padding-right: 40px; /* Sağdaki ikon için boşluk */
+            cursor: pointer;
+            outline: none;
+            color: #ffffff;
+            transition: color 0.3s ease;
+        }
+
+        .faq-satir summary::-webkit-details-marker {
+            display: none; 
+        }
+
+        /* Hover ve Aktif (Açık) Durumunda Buz Mavisi */
+        .faq-satir summary:hover,
+        .faq-satir[open] summary {
+            color: #a0d8ef; 
+        }
+
+        /* Sağ Taraftaki '+' İkonu */
+        .faq-satir summary::after {
+            content: '\f067'; /* fa-plus */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 18px;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        /* Soru Açıldığında '+' İkonu 'X' Olur */
+        .faq-satir[open] summary::after {
+            transform: translateY(-50%) rotate(45deg); 
+            color: #a0d8ef;
+        }
+
+        /* Açılan Cevap Metni */
+        .faq-cevap {
+            margin-top: 15px;
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--metin-ana, #cccccc);
+        }
+
+        .faq-cevap p {
+            margin-bottom: 10px;
+        }
+        
+        .faq-cevap p:last-child {
+            margin-bottom: 0;
+        }
+    </style>
 </head>
 <body>
 
-    <!-- SAĞ ÜST DİL SEÇENEĞİ -->
+    <!-- ÜST BAR VE DİL SEÇİMİ -->
     <header class="ust-menu">
         <div class="dil-cerceve-kutusu">
             <img src="assets/images/language_frame.png" alt="Frame" class="dil-arkaplan-cerceve">
             <div class="dil-butonlari">
-                <a href="blog-tr.html" class="dil-btn dil-aktif">TR</a>
-                <a href="blog-en.html" class="dil-btn">EN</a>
+                <a href="faq-tr.html" class="dil-btn dil-aktif">TR</a>
+                <a href="faq-en.html" class="dil-btn">EN</a>
             </div>
         </div>
     </header>
 
-    <!-- TEK GENİŞLİK REFERANSI -->
     <div class="sayfa-govde">
 
-        <!-- ORTADAKİ LOGO ALANI VE MENÜ -->
+        <!-- LOGO VE SAYFA MENÜSÜ -->
         <div class="logo-merkez-alani">
             <nav class="sayfa-menu">
                 <a href="tr.html">Ana Sayfa</a>
-                <a href="blog-tr.html" class="aktif">Geliştirici Blogu</a>
-                <a href="faq-tr.html">SSS</a>
+                <a href="blog-tr.html">Geliştirici Blogu</a>
+                <a href="faq-tr.html" class="aktif">SSS</a>
             </nav>
             <img src="assets/images/logo.png" alt="Project Violet Logo" class="ana-logo">
         </div>
 
-        <!-- ANA İÇERİK -->
+        <!-- ANA İÇERİK (SSS KUTULARI) -->
         <main class="ana-icerik">
 
-            <div class="kutu">
-                <h1 class="baslik-mor">Geliştirici Blogu</h1>
-                <p>Ana sayfadaki yama notları neyin değiştiğini kısaca özetler. Burası ise perde arkasını anlatmak için var: kararlar, zorluklar, ilhamlar ve Project Violet'in dünyasını kurarken öğrendiklerimiz.</p>
+            <!-- Üst Bilgi Kutusu (Ayrı Duruyor) -->
+            <div class="kutu" style="text-align: center; margin-bottom: 25px;">
+                <h1 class="baslik-mor">Sıkça Sorulan Sorular</h1>
+                <p>Project Violet hakkında en çok merak edilen soruları burada bir araya getirdik.</p>
             </div>
 
-            
-            <!-- YENİ_YAMA_BURAYA -->
+            <!-- TÜM SORULARIN OLDUĞU TEK ANA KUTU -->
+            <div class="kutu faq-kapsayici">
 
-            <div class="kutu blog-yazisi">
-            <h2 class="baslik-mor">Site Sürümü 1.1</h2>
-            <span class="tarih">05 Eylül 2026</span>
-            <p>Project-Violet sitesi v1.1 yayınlandı.</p>
-            <ul>
-                <li>Panel çerçeveleri güncellendi.</li>
-                <li>İletişim sayfası eklendi.</li>
-                <li>Sayfa altlıkları eklendi.</li>
-                <li>SSS panel bug giderildi.</li>
-            </ul>
-        </div>
+                <details class="faq-satir" open>
+                    <summary>Project Violet nedir?</summary>
+                    <div class="faq-cevap">
+                        <p>Project Violet; hikâye, RPG mekanikleri ve sandbox sistemlerini bir araya getiren bağımsız bir oyun projesidir.</p>
+                        <p>Oyuncular kendi mesleklerini seçebilir, dünyayı keşfedebilir ve yaşanan olayların bir parçası olabilir.</p>
+                    </div>
+                </details>
 
-            
-            <!-- YAZI 1 -->
-            <div class="kutu blog-yazisi">
-                <h2 class="baslik-mor">Site Sürümü 1.0</h2>
-                <span class="tarih">04 Eylül 2026</span>
-                <p>Project-Violet sitesi v1.0 yayınlandı.</p>
-                <ul>
-                    <li>Sekmeler arası geçiş barı eklendi.</li>
-                    <li>Geliştirici bloğu eklendi.</li>
-                    <li>SSS sayfası eklendi.</li>
-                    <li>İngilizce dil seçeneği eklendi.</li>
-                    <li>Mobil için özelleştirilmiş dil seçim kutucuğu eklendi.</li>
-                </ul>
+                <details class="faq-satir">
+                    <summary>Oyun ne zaman çıkacak?</summary>
+                    <div class="faq-cevap">
+                        <p>Henüz kesin bir çıkış tarihi yok.</p>
+                        <p>Project Violet erken geliştirme aşamasında ve önceliğimiz oyunun temel sistemlerini sağlam bir şekilde oluşturmak.</p>
+                    </div>
+                </details>
+
+                <details class="faq-satir">
+                    <summary>Hangi platformlarda çıkacak?</summary>
+                    <div class="faq-cevap">
+                        <p>Oyun asıl olarak PC için geliştirilmektedir.</p>
+                        <p>Geliştirme süreci ilerledikçe resmi duyurular bu site üzerinden yapılacak.</p>
+                    </div>
+                </details>
+
+                <details class="faq-satir">
+                    <summary>Kaç farklı meslek olacak?</summary>
+                    <div class="faq-cevap">
+                        <p>Birden fazla meslek bulunacak ve her meslek farklı bir oynanış tarzı sunacak.</p>
+                        <p>Şu anda üzerinde çalışılan meslekler arasında madencilik, ticaret, demircilik, çiftçilik ve savaş odaklı roller bulunuyor.</p>
+                    </div>
+                </details>
+
+                <details class="faq-satir">
+                    <summary>Project Violet multiplayer olacak mı?</summary>
+                    <div class="faq-cevap">
+                        <p>Çok oyunculu özellikler proje fikirleri arasında bulunuyor.</p>
+                        <p>Ancak multiplayer sisteminin kapsamı ve oyunun hangi aşamasında uygulanacağı henüz kesinleşmedi.</p>
+                    </div>
+                </details>
+
+                <details class="faq-satir">
+                    <summary>Hikâye oyunun tamamını mı oluşturacak?</summary>
+                    <div class="faq-cevap">
+                        <p>Hayır.</p>
+                        <p>Project Violet'in hikâye tarafının yanında sandbox sistemleri de bulunuyor.</p>
+                        <p>Hikâyenin sona ermesinden sonra dünyanın yaşamaya devam etmesi hedefleniyor.</p>
+                    </div>
+                </details>
+
+                <details class="faq-satir">
+                    <summary>Oyunun grafikleri nasıl olacak?</summary>
+                    <div class="faq-cevap">
+                        <p>Project Violet pixel art tarzında geliştiriliyor.</p>
+                        <p>Hedefimiz kendine özgü, atmosferik ve tutarlı bir görsel dünya oluşturmak.</p>
+                    </div>
+                </details>
+
+                <details class="faq-satir">
+                    <summary>Oyunu kim geliştiriyor?</summary>
+                    <div class="faq-cevap">
+                        <p>Project Violet bağımsız bir oyun projesi olarak geliştiriliyor.</p>
+                        <p>Geliştirme süreci boyunca projenin nasıl büyüdüğünü ve neler öğrendiğimizi Geliştirici Blogu üzerinden paylaşacağız.</p>
+                    </div>
+                </details>
+
+                <details class="faq-satir">
+                    <summary>Fragman veya demo var mı?</summary>
+                    <div class="faq-cevap">
+                        <p>Henüz değil.</p>
+                        <p>İlk hedefimiz oynanabilir temel sistemleri oluşturmak.</p>
+                        <p>İlk ciddi oynanabilir içerikler hazır olduğunda burada paylaşılacak.</p>
+                    </div>
+                </details>
+
             </div>
 
         </main>
@@ -104,7 +231,7 @@
 
     </div>
 
-    <!-- Sihir Efekti ve Script -->
+    <!-- SİHİR TOZU EFEKTİ -->
     <div class="sihir-kutusu" id="sihirKutusu"></div>
     <script>
         function sihirYarat() {
