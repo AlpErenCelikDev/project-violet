@@ -496,3 +496,25 @@ li {
     h1 { font-size: 14px; line-height: 1.5; }
     h2 { font-size: 12px; line-height: 1.5; }
 }
+
+/* ==========================================================
+   11. MOBİL UYUM (RESPONSIVE DESIGN)
+   ========================================================== */
+@media screen and (max-width: 768px) {
+    
+    /* ... (diğer mobil kodların burada duruyor) ... */
+
+    .kutu { 
+        padding: 20px; 
+        margin-bottom: 20px; 
+    }
+
+    h1 { font-size: 14px; line-height: 1.5; }
+    h2 { font-size: 12px; line-height: 1.5; }
+
+    /* BURAYA EKLİYORSUN: Mobilde logoya tıklayınca kaymasını engeller */
+    .ana-logo:hover {
+        transform: scale(1.02);
+    }
+} /* <-- En sondaki kapanış parantezinin İÇİNDE olduğundan emin ol */
+
